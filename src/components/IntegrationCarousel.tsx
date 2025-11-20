@@ -152,7 +152,7 @@ export const IntegrationCarousel = ({
 
   // @return
   return (
-    <div className="w-full py-16 bg-white">
+    <div className="w-full py-12 md:py-16 bg-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -163,7 +163,7 @@ export const IntegrationCarousel = ({
         >
           <div className="flex flex-col items-center gap-1">
             <h2
-              className="text-[40px] leading-tight font-normal text-[#222222] text-center tracking-tight mb-4"
+              className="text-3xl sm:text-[32px] md:text-[40px] leading-tight font-normal text-[#222222] text-center tracking-tight mb-4"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
                 fontWeight: "400",
@@ -173,7 +173,7 @@ export const IntegrationCarousel = ({
               {title}
             </h2>
             <p
-              className="text-lg leading-7 text-[#666666] text-center max-w-3xl mt-2 whitespace-pre-wrap"
+              className="text-base sm:text-lg leading-6 sm:leading-7 text-[#666666] text-center max-w-3xl mt-2 px-4 whitespace-pre-wrap"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}
@@ -184,7 +184,7 @@ export const IntegrationCarousel = ({
         </motion.div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl overflow-hidden" style={{ height: "160px" }}>
+      <div className="relative mx-auto max-w-7xl overflow-hidden h-[120px] sm:h-[140px] md:h-[160px]">
         <div
           ref={topRowRef}
           className="flex items-center gap-6 absolute top-0 whitespace-nowrap"
@@ -195,7 +195,7 @@ export const IntegrationCarousel = ({
           {[...topRowApps, ...topRowApps].map((app, index) => (
             <div
               key={`top-${index}`}
-              className="flex items-center justify-center w-40 h-28 rounded-3xl flex-shrink-0 px-5"
+              className="flex items-center justify-center w-32 h-24 sm:w-36 sm:h-24 md:w-40 md:h-28 rounded-3xl flex-shrink-0 px-4 sm:px-5"
               style={{
                 backgroundImage: "linear-gradient(rgb(255, 255, 255), rgb(252, 252, 252))",
                 boxShadow:
@@ -208,14 +208,14 @@ export const IntegrationCarousel = ({
         </div>
 
         <div
-          className="absolute top-0 right-0 bottom-0 w-60 h-[160px] z-10 pointer-events-none"
+          className="absolute top-0 right-0 bottom-0 w-24 sm:w-40 md:w-60 h-full z-10 pointer-events-none"
           style={{
             backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 255, 255))",
           }}
         />
 
         <div
-          className="absolute top-0 left-0 bottom-0 w-60 h-[160px] z-10 pointer-events-none"
+          className="absolute top-0 left-0 bottom-0 w-24 sm:w-40 md:w-60 h-full z-10 pointer-events-none"
           style={{
             backgroundImage: "linear-gradient(90deg, rgb(255, 255, 255), rgba(0, 0, 0, 0))",
           }}

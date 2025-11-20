@@ -80,16 +80,16 @@ export const Footer = ({
   const copyright = copyrightText || `© ${currentYear} ${companyName}. All rights reserved.`
   return (
     <footer className="w-full bg-[#fafafa] border-t border-[#e5e5e5]">
-      <div className="max-w-[1200px] mx-auto px-8 py-16">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-14 md:py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 mb-12">
           {/* Brand Column */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="col-span-2"
+            className="col-span-1 sm:col-span-2"
           >
             <div className="mb-4">
               <h3

@@ -71,9 +71,9 @@ export const BankingScaleHero = () => {
 
   // @return
   return (
-    <div className="w-full overflow-hidden bg-white py-16">
-      <div className="mx-auto max-w-7xl px-8">
-        <div className="grid grid-cols-12 gap-5 gap-y-16">
+    <div className="w-full overflow-hidden bg-white py-12 md:py-16">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        <div className="grid grid-cols-12 gap-6 md:gap-5 gap-y-12 md:gap-y-16">
           <div className="col-span-12 md:col-span-6 relative z-10">
             <div
               className="relative h-6 inline-flex items-center font-mono uppercase text-xs text-[#167E6C] mb-12 px-2"
@@ -121,7 +121,7 @@ export const BankingScaleHero = () => {
             </div>
 
             <h2
-              className="text-[40px] font-normal leading-tight tracking-tight text-[#111A4A] mb-6"
+              className="text-3xl sm:text-[32px] md:text-[40px] font-normal leading-tight tracking-tight text-[#111A4A] mb-6"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
                 fontSize: "40px",
@@ -141,7 +141,7 @@ export const BankingScaleHero = () => {
             </h2>
 
             <p
-              className="text-lg leading-6 text-[#111A4A] opacity-60 mt-0 mb-6"
+              className="text-base sm:text-lg leading-6 text-[#111A4A] opacity-60 mt-0 mb-6"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}
@@ -159,8 +159,8 @@ export const BankingScaleHero = () => {
           </div>
 
           <div className="col-span-12 md:col-span-6">
-            <div className="relative w-full h-[416px] -ml-[200px]">
-              <div className="absolute top-0 left-[302px] w-[680px] h-[416px] pointer-events-none">
+            <div className="relative w-full h-[320px] sm:h-[360px] md:h-[416px] -ml-0 md:-ml-[200px]">
+              <div className="absolute top-0 left-1/2 md:left-[302px] -translate-x-1/2 md:-translate-x-0 w-[420px] sm:w-[520px] md:w-[680px] h-[320px] sm:h-[360px] md:h-[416px] pointer-events-none">
                 <div className="relative w-full h-full">
                   {dataPoints.map((point) => (
                     <motion.div
@@ -222,7 +222,7 @@ export const BankingScaleHero = () => {
 
           <div className="col-span-12">
             <div className="overflow-visible pb-5">
-              <div className="grid grid-cols-12 gap-5 relative z-10">
+              <div className="grid grid-cols-12 gap-4 md:gap-5 relative z-10">
                 {stats.map((stat, index) => (
                   <div key={index} className="col-span-6 md:col-span-3">
                     <motion.div

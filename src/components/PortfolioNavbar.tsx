@@ -55,8 +55,8 @@ export const PortfolioNavbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"}`}
     >
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex-shrink-0">
             <button
               onClick={() => handleLinkClick("#home")}
@@ -142,7 +142,7 @@ export const PortfolioNavbar = () => {
             }}
             className="md:hidden bg-background/95 backdrop-blur-md border-t border-border"
           >
-            <div className="px-6 py-6 space-y-4">
+            <div className="px-4 sm:px-6 py-6 space-y-4">
               {navigationLinks.map((link) => (
                 <button
                   key={link.name}

@@ -34,13 +34,13 @@ export const FAQSection = ({ title = "Frequently asked questions", faqs = defaul
     setOpenIndex(openIndex === index ? null : index)
   }
   return (
-    <section className="w-full py-24 px-8 bg-white">
+    <section className="w-full py-16 sm:py-24 px-6 md:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-12 gap-16">
           {/* Left Column - Title */}
           <div className="lg:col-span-4">
             <h2
-              className="text-[40px] leading-tight font-normal text-[#202020] tracking-tight sticky top-24"
+              className="text-3xl sm:text-[32px] md:text-[40px] leading-tight font-normal text-[#202020] tracking-tight lg:sticky top-24 mb-4 lg:mb-0"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
                 fontWeight: "400",
@@ -58,11 +58,11 @@ export const FAQSection = ({ title = "Frequently asked questions", faqs = defaul
                 <div key={index} className="border-b border-[#e5e5e5] last:border-b-0">
                   <button
                     onClick={() => toggleFAQ(index)}
-                    className="w-full flex items-center justify-between py-6 text-left group hover:opacity-70 transition-opacity duration-150"
+                    className="w-full flex items-center justify-between py-4 md:py-6 text-left group hover:opacity-70 transition-opacity duration-150"
                     aria-expanded={openIndex === index}
                   >
                     <span
-                      className="text-lg leading-7 text-[#202020] pr-8"
+                      className="text-base sm:text-lg leading-6 sm:leading-7 text-[#202020] pr-4 sm:pr-8 text-left"
                       style={{
                         fontFamily: "var(--font-figtree), Figtree",
                         fontWeight: "400",
@@ -107,7 +107,7 @@ export const FAQSection = ({ title = "Frequently asked questions", faqs = defaul
                       >
                         <div className="pb-6 pr-12">
                           <p
-                            className="text-lg leading-6 text-[#666666]"
+                            className="text-base sm:text-lg leading-6 text-[#666666]"
                             style={{
                               fontFamily: "var(--font-figtree), Figtree",
                             }}
