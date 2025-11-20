@@ -207,12 +207,11 @@ const SlackCallCard = ({
         ease: [0.76, 0, 0.24, 1],
         delay,
       }}
-      className="absolute w-[380px] rounded-xl p-6 backdrop-blur-xl"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] rounded-xl p-5 sm:p-6 backdrop-blur-xl translate-x-0 translate-y-0 md:translate-x-0 md:translate-y-0"
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.85)",
         boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.12)",
         filter: "drop-shadow(0 4px 6px rgba(30, 30, 44, 0.15))",
-        transform: "translate(220px, -40px)",
         zIndex,
       }}
     >
@@ -266,12 +265,11 @@ const MeetingTranscriptCard = ({
         ease: [0.76, 0, 0.24, 1],
         delay,
       }}
-      className="absolute w-[380px] rounded-xl p-6 backdrop-blur-xl"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] rounded-xl p-5 sm:p-6 backdrop-blur-xl translate-x-0 translate-y-0 md:translate-x-0 md:translate-y-0"
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.85)",
         boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.12)",
         filter: "drop-shadow(0 4px 6px rgba(30, 30, 44, 0.15))",
-        transform: "translate(-200px, -60px)",
         zIndex,
       }}
     >
@@ -340,12 +338,11 @@ const NotionCollaborationCard = ({
         ease: [0.76, 0, 0.24, 1],
         delay,
       }}
-      className="absolute w-[380px] rounded-xl p-6 backdrop-blur-xl"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] rounded-xl p-5 sm:p-6 backdrop-blur-xl translate-x-0 translate-y-0 md:translate-x-0 md:translate-y-0"
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.85)",
         boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.12)",
         filter: "drop-shadow(0 4px 6px rgba(30, 30, 44, 0.15))",
-        transform: "translate(-200px, -80px)",
         zIndex,
       }}
     >
@@ -417,12 +414,11 @@ const StripeGlobalCard = ({
         ease: [0.76, 0, 0.24, 1],
         delay,
       }}
-      className="absolute w-[400px] rounded-xl p-6 backdrop-blur-xl"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[400px] rounded-xl p-5 sm:p-6 backdrop-blur-xl translate-x-0 translate-y-0 md:translate-x-0 md:translate-y-0"
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.85)",
         boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.12)",
         filter: "drop-shadow(0 4px 6px rgba(30, 30, 44, 0.15))",
-        transform: "translate(-180px, -60px)",
         zIndex,
       }}
     >
@@ -490,12 +486,11 @@ const FigmaSprintCard = ({
         ease: [0.76, 0, 0.24, 1],
         delay,
       }}
-      className="absolute w-[380px] rounded-xl p-6 backdrop-blur-xl"
+      className="relative w-full max-w-[320px] sm:max-w-[360px] md:w-[380px] rounded-xl p-5 sm:p-6 backdrop-blur-xl translate-x-0 translate-y-0 md:translate-x-0 md:translate-y-0"
       style={{
         backgroundColor: "rgba(255, 255, 255, 0.85)",
         boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.8), 0 8px 32px 0 rgba(0, 0, 0, 0.12)",
         filter: "drop-shadow(0 4px 6px rgba(30, 30, 44, 0.15))",
-        transform: "translate(-190px, -70px)",
         zIndex,
       }}
     >
@@ -597,7 +592,7 @@ export const CaseStudiesCarousel = () => {
   }
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 300 : -300,
       opacity: 0,
     }),
     center: {
@@ -605,21 +600,21 @@ export const CaseStudiesCarousel = () => {
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 300 : -300,
       opacity: 0,
     }),
   }
   return (
     <div
-      className="w-full min-h-screen bg-gradient-to-br from-background via-background to-muted/20 flex items-center justify-center pt-8 pb-16 px-8"
+      className="w-full min-h-[80vh] md:min-h-screen bg-gradient-to-br from-background via-background to-muted/20 flex items-center justify-center pt-10 pb-14 md:pb-16 px-6 md:px-8"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       <div className="max-w-7xl w-full">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <h1
-            className="text-[40px] leading-tight font-normal text-foreground mb-6 tracking-tight"
+            className="text-3xl sm:text-[32px] md:text-[40px] leading-tight font-normal text-foreground mb-6 tracking-tight"
             style={{
               fontWeight: "400",
               fontFamily: "var(--font-figtree), Figtree",
@@ -629,7 +624,7 @@ export const CaseStudiesCarousel = () => {
             What Students Say
           </h1>
           <p
-            className="text-lg leading-7 text-muted-foreground max-w-2xl mx-auto whitespace-pre-wrap"
+            className="text-base sm:text-lg leading-6 sm:leading-7 text-muted-foreground max-w-2xl mx-auto whitespace-pre-wrap px-2"
             style={{
               fontFamily: "var(--font-figtree), Figtree",
             }}
@@ -638,9 +633,9 @@ export const CaseStudiesCarousel = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentStudy.id}
@@ -664,7 +659,7 @@ export const CaseStudiesCarousel = () => {
                 <div className="text-foreground/60">{currentStudy.logo}</div>
 
                 <h2
-                  className="text-4xl font-bold text-foreground leading-tight tracking-tight"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight tracking-tight"
                   style={{
                     fontFamily: "var(--font-figtree), Figtree",
                     fontWeight: "400",
@@ -701,8 +696,8 @@ export const CaseStudiesCarousel = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation */}
-            <div className="flex items-center gap-6">
+            {/* Navigation - desktop */}
+            <div className="hidden lg:flex items-center gap-6">
               <div className="flex gap-2">
                 {caseStudies.map((_, idx) => (
                   <button
@@ -750,7 +745,7 @@ export const CaseStudiesCarousel = () => {
           </div>
 
           {/* Right Content - Card Visualization */}
-          <div className="relative h-[500px] flex items-center justify-center">
+          <div className="relative h-[340px] sm:h-[420px] md:h-[500px] flex items-start md:items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentStudy.id}
@@ -782,6 +777,53 @@ export const CaseStudiesCarousel = () => {
                 )}
               </motion.div>
             </AnimatePresence>
+          </div>
+
+          {/* Navigation - mobile, placed below the card */}
+          <div className="lg:hidden flex items-center justify-center gap-6">
+            <div className="flex gap-2">
+              {caseStudies.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToSlide(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                onClick={prevSlide}
+                className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
+                aria-label="Previous slide"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M12.5 15L7.5 10L12.5 5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <button
+                onClick={nextSlide}
+                className="p-2 rounded-lg border border-border hover:bg-accent transition-colors"
+                aria-label="Next slide"
+              >
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M7.5 15L12.5 10L7.5 5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>

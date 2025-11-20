@@ -46,7 +46,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   // @return
   return (
     <section
-      className="w-full px-8 pt-40 pb-0 relative bg-white overflow-hidden"
+      className="w-full px-6 sm:px-8 pt-28 sm:pt-36 md:pt-40 pb-0 relative bg-white overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -109,10 +109,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             duration: 0.8,
             ease: [0.645, 0.045, 0.355, 1],
           }}
-          className="p-12 lg:p-16"
-          style={{
-            aspectRatio: "2/1",
-          }}
+          className="p-6 md:p-12 lg:p-16 md:aspect-[2/1]"
         >
           {/* Content */}
           <div className="flex flex-col justify-center items-center h-full max-w-[900px] mx-auto text-center">
@@ -146,7 +143,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </a>
 
             <h1
-              className="text-[56px] leading-[60px] tracking-tight text-[#202020] max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
+              className="text-4xl sm:text-[44px] md:text-[56px] leading-[1.1] md:leading-[60px] tracking-tight text-[#202020] max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
               style={{
                 fontWeight: "500",
                 fontFamily: "var(--font-figtree), Figtree",
@@ -186,7 +183,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </h1>
 
             <p
-              className="text-lg leading-7 text-muted-foreground max-w-2xl mx-auto mb-10"
+              className="text-base sm:text-lg leading-6 sm:leading-7 text-muted-foreground max-w-2xl mx-auto mb-10 px-2"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}

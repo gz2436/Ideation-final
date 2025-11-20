@@ -37,29 +37,29 @@ const features: CarrierFeature[] = [
 
 export function PricingSection() {
   return (
-    <section className="pt-8 pb-16 bg-background">
+    <section className="pt-6 sm:pt-8 pb-16 bg-background">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="font-figtree text-[40px] font-normal leading-tight mb-4">Carrier Feature Comparison</h2>
-          <p className="font-figtree text-lg text-muted-foreground max-w-2xl mx-auto whitespace-pre-wrap">
+          <h2 className="font-figtree text-3xl sm:text-[32px] md:text-[40px] font-normal leading-tight mb-4">Carrier Feature Comparison</h2>
+          <p className="font-figtree text-base sm:text-lg leading-6 sm:leading-7 text-muted-foreground max-w-2xl mx-auto whitespace-pre-wrap px-2">
             Compare key features across major US carriers to find the best fit{"\n"}for your needs as an international student.
           </p>
         </div>
 
         {/* Comparison Table */}
         <div className="overflow-x-auto">
-          <div className="inline-block min-w-full align-middle">
+          <div className="inline-block align-middle w-full">
             <div className="overflow-hidden border border-border rounded-2xl bg-white shadow-sm">
               {/* Header Row - Carrier Logos */}
-              <div className="grid grid-cols-7 gap-0 border-b border-border bg-muted/30">
-                <div className="p-6 font-figtree font-semibold text-foreground">Features</div>
+              <div className="grid grid-cols-7 gap-0 border-b border-border bg-muted/30 text-[10px] sm:text-xs md:text-sm">
+                <div className="p-2 sm:p-3 md:p-4 font-figtree font-semibold text-foreground leading-4 sm:leading-5">Features</div>
                 {carriers.map((carrier) => (
-                  <div key={carrier.key} className="p-3 flex items-center justify-center border-l border-border">
+                  <div key={carrier.key} className="p-2 sm:p-3 flex items-center justify-center border-l border-border">
                     <img
                       src={carrier.logo}
                       alt={carrier.name}
-                      className="max-w-[70px] max-h-11 object-contain"
+                      className="max-w-[42px] sm:max-w-[56px] md:max-w-[70px] max-h-8 sm:max-h-10 md:max-h-11 object-contain"
                     />
                   </div>
                 ))}
@@ -69,22 +69,24 @@ export function PricingSection() {
               {features.map((feature, index) => (
                 <div
                   key={feature.name}
-                  className={`grid grid-cols-7 gap-0 ${index !== features.length - 1 ? 'border-b border-border' : ''} hover:bg-muted/20 transition-colors`}
-                  style={{ minHeight: '64px' }}
+                  className={`grid grid-cols-7 gap-0 ${index !== features.length - 1 ? 'border-b border-border' : ''} hover:bg-muted/20 transition-colors text-[10px] sm:text-xs md:text-sm`}
+                  style={{ minHeight: '48px' }}
                 >
-                  <div className="p-4 font-figtree text-sm text-foreground flex items-center">{feature.name}</div>
+                  <div className="p-2 sm:p-3 md:p-4 font-figtree text-[11px] sm:text-xs md:text-sm leading-4 sm:leading-5 text-foreground flex items-center">
+                    {feature.name}
+                  </div>
                   {carriers.map((carrier) => (
                     <div
                       key={`${feature.name}-${carrier.key}`}
-                      className="p-3 flex items-center justify-center border-l border-border"
+                      className="p-1.5 sm:p-2 md:p-3 flex items-center justify-center border-l border-border"
                     >
                       {feature[carrier.key as keyof Omit<CarrierFeature, 'name'>] ? (
-                        <div className="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center">
-                          <CheckIcon className="w-3 h-3 text-green-700" />
+                        <div className="w-4 h-4 rounded-full bg-green-200 flex items-center justify-center">
+                          <CheckIcon className="w-2.5 h-2.5 text-green-700" />
                         </div>
                       ) : (
-                        <div className="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center">
-                          <Cross2Icon className="w-3 h-3 text-red-700" />
+                        <div className="w-4 h-4 rounded-full bg-red-200 flex items-center justify-center">
+                          <Cross2Icon className="w-2.5 h-2.5 text-red-700" />
                         </div>
                       )}
                     </div>
