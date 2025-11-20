@@ -27,33 +27,30 @@ type FooterProps = {
 
 const defaultSections: FooterSection[] = [
   {
-    title: "Product",
+    title: "Plans",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Integrations", href: "#integrations" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "API Docs", href: "#api" },
-      { label: "Changelog", href: "#changelog" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About", href: "#about" },
-      { label: "Careers", href: "#careers" },
-      { label: "Blog", href: "#blog" },
-      { label: "Press Kit", href: "#press" },
-      { label: "Contact", href: "#contact" },
+      { label: "Carrier Comparison", href: "#carriers" },
+      { label: "Plan Finder", href: "#plans" },
+      { label: "Student Guides", href: "#guides" },
+      { label: "Activation Help", href: "#activation" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Documentation", href: "#docs" },
-      { label: "Help Center", href: "#help" },
-      { label: "Community", href: "#community" },
-      { label: "Case Studies", href: "#case-studies" },
-      { label: "Webinars", href: "#webinars" },
+      { label: "Getting Started", href: "#getting-started" },
+      { label: "University Partners", href: "#partners" },
+      { label: "Blog", href: "#blog" },
+      { label: "Support Center", href: "#support" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "#about" },
+      { label: "Contact", href: "#contact" },
+      { label: "Partnerships", href: "#partnerships" },
+      { label: "Careers", href: "#careers" },
     ],
   },
   {
@@ -61,22 +58,21 @@ const defaultSections: FooterSection[] = [
     links: [
       { label: "Privacy Policy", href: "#privacy" },
       { label: "Terms of Service", href: "#terms" },
-      { label: "Security", href: "#security" },
-      { label: "Compliance", href: "#compliance" },
+      { label: "Student Data Protection", href: "#data-protection" },
       { label: "Cookie Policy", href: "#cookies" },
     ],
   },
 ]
 
 export const Footer = ({
-  companyName = "Auralink",
-  tagline = "The Intelligence Layer for Modern Communication",
+  companyName = "GoUS",
+  tagline = "Helping International Students Connect in America",
   sections = defaultSections,
   socialLinks = {
     twitter: "https://twitter.com",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
-    email: "hello@auralink.com",
+    email: "hello@gous.com",
   },
   copyrightText,
 }: FooterProps) => {

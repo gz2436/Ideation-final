@@ -18,23 +18,23 @@ type DataPoint = {
 }
 const stats: StatItem[] = [
   {
-    value: "1B+",
-    description: "Messages analyzed\ndaily",
+    value: "15+",
+    description: "Major carriers\nsupported",
     delay: 0,
   },
   {
-    value: "99.9%",
-    description: "Accuracy in tone\ndetection",
+    value: "50K+",
+    description: "International students\nhelped",
     delay: 0.2,
   },
   {
-    value: "50+",
-    description: "Languages supported\nworldwide",
+    value: "200+",
+    description: "Partner universities\nacross the US",
     delay: 0.4,
   },
   {
-    value: "1000+",
-    description: "Organizations using\nAuralink",
+    value: "4.8/5",
+    description: "Average rating from\nstudents",
     delay: 0.6,
   },
 ]
@@ -71,8 +71,8 @@ export const BankingScaleHero = () => {
 
   // @return
   return (
-    <div className="w-full overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-8 py-24 pt-16">
+    <div className="w-full overflow-hidden bg-white py-16">
+      <div className="mx-auto max-w-7xl px-8">
         <div className="grid grid-cols-12 gap-5 gap-y-16">
           <div className="col-span-12 md:col-span-6 relative z-10">
             <div
@@ -98,7 +98,7 @@ export const BankingScaleHero = () => {
                     color: "#146e96",
                   }}
                 >
-                  Trusted at scale
+                  Trusted by students
                 </motion.span>
                 <motion.span
                   initial={{
@@ -128,7 +128,7 @@ export const BankingScaleHero = () => {
                 fontWeight: "400",
               }}
             >
-              Analyzing billions of conversations daily{" "}
+              Helping international students connect{" "}
               <span
                 className="opacity-40"
                 style={{
@@ -136,7 +136,7 @@ export const BankingScaleHero = () => {
                   fontSize: "40px",
                 }}
               >
-                for the world's most sophisticated teams and enterprises.
+                to the right US phone plan from day one.
               </span>
             </h2>
 
@@ -146,13 +146,13 @@ export const BankingScaleHero = () => {
                 fontFamily: "var(--font-figtree), Figtree",
               }}
             >
-              As the intelligence layer for modern communication, we provide real-time insights and emotional detection
-              through our advanced AI-powered platform.
+              As your trusted resource for US mobile carriers, we provide comprehensive comparisons, activation guides,
+              and recommendations tailored specifically for international students arriving in America.
             </p>
 
             <button className="relative inline-flex justify-center items-center leading-4 text-center cursor-pointer whitespace-nowrap outline-none font-medium h-9 text-[#232730] bg-white/50 backdrop-blur-sm shadow-[0_1px_1px_0_rgba(255,255,255,0),0_0_0_1px_rgba(87,90,100,0.12)] transition-all duration-200 ease-in-out rounded-lg px-4 mt-5 text-sm group hover:shadow-[0_1px_2px_0_rgba(0,0,0,0.05),0_0_0_1px_rgba(87,90,100,0.18)]">
               <span className="relative z-10 flex items-center gap-1">
-                Learn about our platform
+                Explore carriers
                 <ArrowRight className="w-4 h-4 -mr-1 transition-transform duration-150 group-hover:translate-x-1" />
               </span>
             </button>
@@ -172,9 +172,9 @@ export const BankingScaleHero = () => {
                       animate={
                         isVisible
                           ? {
-                              opacity: [0, 1, 1],
-                              height: [0, point.height, point.height],
-                            }
+                            opacity: [0, 1, 1],
+                            height: [0, point.height, point.height],
+                          }
                           : {}
                       }
                       transition={{
@@ -200,8 +200,8 @@ export const BankingScaleHero = () => {
                         animate={
                           isVisible
                             ? {
-                                opacity: [0, 1],
-                              }
+                              opacity: [0, 1],
+                            }
                             : {}
                         }
                         transition={{
@@ -234,10 +234,10 @@ export const BankingScaleHero = () => {
                       animate={
                         isVisible
                           ? {
-                              opacity: [0, 1, 1],
-                              y: [20, 0, 0],
-                              filter: ["blur(4px)", "blur(0px)", "blur(0px)"],
-                            }
+                            opacity: [0, 1, 1],
+                            y: [20, 0, 0],
+                            filter: ["blur(4px)", "blur(0px)", "blur(0px)"],
+                          }
                           : {}
                       }
                       transition={{

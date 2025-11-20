@@ -1,197 +1,94 @@
 "use client"
 
 import * as React from "react"
-import { CheckIcon } from "@radix-ui/react-icons"
-import { cn } from "@/lib/utils"
+import { CheckIcon, Cross2Icon } from "@radix-ui/react-icons"
 
-type PlanLevel = "starter" | "pro" | "enterprise"
-
-interface PricingFeature {
+interface CarrierFeature {
   name: string
-  included: PlanLevel | "all"
+  att: boolean
+  verizon: boolean
+  tmobile: boolean
+  mint: boolean
+  cricket: boolean
+  visible: boolean
 }
 
-interface PricingPlan {
-  name: string
-  level: PlanLevel
-  price: {
-    monthly: number
-    yearly: number
-  }
-  popular?: boolean
-}
-
-const features: PricingFeature[] = [
-  { name: "Real-time conversation analysis", included: "starter" },
-  { name: "Up to 10,000 messages/month", included: "starter" },
-  { name: "Basic sentiment detection", included: "starter" },
-  { name: "Email support", included: "starter" },
-  { name: "Advanced emotional intelligence", included: "pro" },
-  { name: "Up to 100,000 messages/month", included: "pro" },
-  { name: "Multi-language support (50+ languages)", included: "pro" },
-  { name: "Priority support", included: "pro" },
-  { name: "Custom AI model training", included: "enterprise" },
-  { name: "Unlimited messages", included: "enterprise" },
-  { name: "Dedicated account manager", included: "enterprise" },
-  { name: "24/7 phone support", included: "enterprise" },
-  { name: "API access", included: "all" },
-  { name: "Team collaboration tools", included: "all" },
+const carriers = [
+  { name: "AT&T", logo: "/images/960px-AT&T_logo_2016.svg.png", key: "att" },
+  { name: "Verizon", logo: "/images/960px-Verizon_2024.svg.png", key: "verizon" },
+  { name: "T-Mobile", logo: "/images/T-Mobile_US_Logo_2020_RGB_Magenta_on_Transparent.svg", key: "tmobile" },
+  { name: "Mint Mobile", logo: "/images/Mint_Mobile_Logo.svg", key: "mint" },
+  { name: "Cricket", logo: "/images/640px-Cricket_Wireless_(2014).svg.png", key: "cricket" },
+  { name: "Visible", logo: "/images/Visible_by_verizon_logo.svg", key: "visible" },
 ]
 
-const plans: PricingPlan[] = [
-  {
-    name: "Starter",
-    price: { monthly: 29, yearly: 290 },
-    level: "starter",
-  },
-  {
-    name: "Pro",
-    price: { monthly: 99, yearly: 990 },
-    level: "pro",
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: { monthly: 299, yearly: 2990 },
-    level: "enterprise",
-  },
+const features: CarrierFeature[] = [
+  { name: "5G Network Access", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
+  { name: "Unlimited Data Plans", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
+  { name: "International Calling", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: false },
+  { name: "Mobile Hotspot", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
+  { name: "No Contract Required", att: true, verizon: false, tmobile: false, mint: true, cricket: true, visible: true },
+  { name: "eSIM Support", att: true, verizon: true, tmobile: true, mint: true, cricket: false, visible: true },
+  { name: "WiFi Calling", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
+  { name: "Family Plans Available", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: false },
+  { name: "Student Discounts", att: true, verizon: true, tmobile: true, mint: false, cricket: false, visible: false },
+  { name: "Monthly Plans Under $30", att: false, verizon: false, tmobile: false, mint: true, cricket: true, visible: true },
 ]
-
-function shouldShowCheck(included: PricingFeature["included"], level: PlanLevel): boolean {
-  if (included === "all") return true
-  if (included === "enterprise" && level === "enterprise") return true
-  if (included === "pro" && (level === "pro" || level === "enterprise")) return true
-  if (included === "starter") return true
-  return false
-}
 
 export function PricingSection() {
-  const [isYearly, setIsYearly] = React.useState(false)
-  const [selectedPlan, setSelectedPlan] = React.useState<PlanLevel>("pro")
-
   return (
-    <section className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="pt-8 pb-16 bg-background">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-figtree text-[40px] font-normal leading-tight mb-4">Choose Your Plan</h2>
-          <p className="font-figtree text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get started with Auralink's communication intelligence platform. All plans include API access and team
-            collaboration.
+        <div className="text-center mb-10">
+          <h2 className="font-figtree text-[40px] font-normal leading-tight mb-4">Carrier Feature Comparison</h2>
+          <p className="font-figtree text-lg text-muted-foreground max-w-2xl mx-auto whitespace-pre-wrap">
+            Compare key features across major US carriers to find the best fit{"\n"}for your needs as an international student.
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-secondary rounded-full p-1">
-            <button
-              type="button"
-              onClick={() => setIsYearly(false)}
-              className={cn(
-                "px-6 py-2 rounded-full font-figtree text-lg transition-all",
-                !isYearly ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Monthly
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsYearly(true)}
-              className={cn(
-                "px-6 py-2 rounded-full font-figtree text-lg transition-all",
-                isYearly ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              Yearly
-              <span className="ml-2 text-sm text-[#156d95]">Save 17%</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Plan Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {plans.map((plan) => (
-            <button
-              key={plan.name}
-              type="button"
-              onClick={() => setSelectedPlan(plan.level)}
-              className={cn(
-                "relative p-8 rounded-2xl text-left transition-all border-2",
-                selectedPlan === plan.level
-                  ? "border-[#156d95] bg-[#156d95]/5"
-                  : "border-border hover:border-[#156d95]/50",
-              )}
-            >
-              {plan.popular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#156d95] text-white px-4 py-1 rounded-full text-sm font-figtree">
-                  Most Popular
-                </span>
-              )}
-              <div className="mb-6">
-                <h3 className="font-figtree text-2xl font-medium mb-2">{plan.name}</h3>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-figtree text-4xl font-medium">
-                    ${isYearly ? plan.price.yearly : plan.price.monthly}
-                  </span>
-                  <span className="font-figtree text-lg text-muted-foreground">/{isYearly ? "year" : "month"}</span>
-                </div>
-              </div>
-              <div
-                className={cn(
-                  "w-full py-3 px-6 rounded-full font-figtree text-lg transition-all text-center",
-                  selectedPlan === plan.level ? "bg-[#156d95] text-white" : "bg-secondary text-foreground",
-                )}
-              >
-                {selectedPlan === plan.level ? "Selected" : "Select Plan"}
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Features Table */}
-        <div className="border border-border rounded-2xl overflow-hidden bg-card">
-          <div className="overflow-x-auto">
-            <div className="min-w-[768px]">
-              {/* Table Header */}
-              <div className="flex items-center p-6 bg-secondary border-b border-border">
-                <div className="flex-1">
-                  <h3 className="font-figtree text-xl font-medium">Features</h3>
-                </div>
-                <div className="flex items-center gap-8">
-                  {plans.map((plan) => (
-                    <div key={plan.level} className="w-24 text-center font-figtree text-lg font-medium">
-                      {plan.name}
-                    </div>
-                  ))}
-                </div>
+        {/* Comparison Table */}
+        <div className="overflow-x-auto">
+          <div className="inline-block min-w-full align-middle">
+            <div className="overflow-hidden border border-border rounded-2xl bg-white shadow-sm">
+              {/* Header Row - Carrier Logos */}
+              <div className="grid grid-cols-7 gap-0 border-b border-border bg-muted/30">
+                <div className="p-6 font-figtree font-semibold text-foreground">Features</div>
+                {carriers.map((carrier) => (
+                  <div key={carrier.key} className="p-3 flex items-center justify-center border-l border-border">
+                    <img
+                      src={carrier.logo}
+                      alt={carrier.name}
+                      className="max-w-[70px] max-h-11 object-contain"
+                    />
+                  </div>
+                ))}
               </div>
 
               {/* Feature Rows */}
               {features.map((feature, index) => (
                 <div
                   key={feature.name}
-                  className={cn(
-                    "flex items-center p-6 transition-colors",
-                    index % 2 === 0 ? "bg-background" : "bg-secondary/30",
-                    feature.included === selectedPlan && "bg-[#156d95]/5",
-                  )}
+                  className={`grid grid-cols-7 gap-0 ${index !== features.length - 1 ? 'border-b border-border' : ''} hover:bg-muted/20 transition-colors`}
+                  style={{ minHeight: '64px' }}
                 >
-                  <div className="flex-1">
-                    <span className="font-figtree text-lg">{feature.name}</span>
-                  </div>
-                  <div className="flex items-center gap-8">
-                    {plans.map((plan) => (
-                      <div key={plan.level} className="w-24 flex justify-center">
-                        {shouldShowCheck(feature.included, plan.level) ? (
-                          <div className="w-6 h-6 rounded-full bg-[#156d95] flex items-center justify-center">
-                            <CheckIcon className="w-4 h-4 text-white" />
-                          </div>
-                        ) : (
-                          <span className="text-muted-foreground">-</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                  <div className="p-4 font-figtree text-sm text-foreground flex items-center">{feature.name}</div>
+                  {carriers.map((carrier) => (
+                    <div
+                      key={`${feature.name}-${carrier.key}`}
+                      className="p-3 flex items-center justify-center border-l border-border"
+                    >
+                      {feature[carrier.key as keyof Omit<CarrierFeature, 'name'>] ? (
+                        <div className="w-5 h-5 rounded-full bg-green-200 flex items-center justify-center">
+                          <CheckIcon className="w-3 h-3 text-green-700" />
+                        </div>
+                      ) : (
+                        <div className="w-5 h-5 rounded-full bg-red-200 flex items-center justify-center">
+                          <Cross2Icon className="w-3 h-3 text-red-700" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
@@ -200,8 +97,8 @@ export function PricingSection() {
 
         {/* CTA Button */}
         <div className="mt-12 text-center">
-          <button className="bg-[#156d95] text-white px-[18px] py-[15px] rounded-full font-figtree text-lg hover:rounded-2xl transition-all">
-            Get started with {plans.find((p) => p.level === selectedPlan)?.name}
+          <button className="text-[#202020] border border-[#202020] px-[18px] py-[15px] rounded-full font-figtree text-lg transition-all duration-200 hover:shadow-md">
+            Compare Full Plan Details
           </button>
         </div>
       </div>

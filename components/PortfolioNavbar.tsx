@@ -5,20 +5,20 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 const navigationLinks = [
   {
-    name: "Features",
-    href: "#features",
+    name: "Plans",
+    href: "#plans",
   },
   {
-    name: "Pricing",
-    href: "#pricing",
+    name: "Guide",
+    href: "#guide",
   },
   {
-    name: "Solutions",
-    href: "#solutions",
+    name: "FAQ",
+    href: "#faq",
   },
   {
-    name: "Resources",
-    href: "#resources",
+    name: "About",
+    href: "#about",
   },
 ] as any[]
 
@@ -54,6 +54,7 @@ export const PortfolioNavbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-sm" : "bg-transparent"}`}
     >
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
@@ -70,7 +71,7 @@ export const PortfolioNavbar = () => {
                   fontWeight: "800",
                 }}
               >
-                Auralink
+                GoUS
               </span>
             </button>
           </div>
@@ -97,19 +98,14 @@ export const PortfolioNavbar = () => {
           <div className="hidden md:block">
             <button
               onClick={() => handleLinkClick("#contact")}
-              className="bg-[#156d95] text-white px-[18px] rounded-full text-base font-semibold hover:bg-[#156d95]/90 transition-all duration-200 hover:rounded-2xl shadow-sm hover:shadow-md whitespace-nowrap leading-4 py-[15px]"
+              className="text-foreground hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 relative group"
               style={{
-                fontFamily: "Plus Jakarta Sans, sans-serif",
+                fontFamily: "Figtree, sans-serif",
+                fontWeight: "400",
               }}
             >
-              <span
-                style={{
-                  fontFamily: "Figtree",
-                  fontWeight: "500",
-                }}
-              >
-                Start Free Trial
-              </span>
+              <span>Get Started</span>
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
             </button>
           </div>
 
@@ -163,12 +159,12 @@ export const PortfolioNavbar = () => {
               <div className="pt-4 border-t border-border">
                 <button
                   onClick={() => handleLinkClick("#contact")}
-                  className="w-full bg-[#156d95] text-white px-[18px] py-[15px] rounded-full text-base font-semibold hover:bg-[#156d95]/90 transition-all duration-200"
+                  className="block w-full text-left rounded-md px-3 py-4 text-base font-medium text-[#555555] hover:bg-gray-50 hover:text-[#202020]"
                   style={{
                     fontFamily: "Plus Jakarta Sans, sans-serif",
                   }}
                 >
-                  <span>Start Free Trial</span>
+                  Get Started
                 </button>
               </div>
             </div>

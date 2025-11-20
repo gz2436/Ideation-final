@@ -13,19 +13,19 @@ type FAQSectionProps = {
 }
 const defaultFAQs: FAQItem[] = [
   {
-    question: "What is Auralink and how does it work?",
+    question: "What is GoUS and how does it help international students?",
     answer:
-      "Auralink is an AI-powered intelligence layer that connects all your communication tools—calls, chats, and meetings—into a unified system. It analyzes conversations in real-time to provide insights on sentiment, tone, team alignment, and collaboration patterns. Simply integrate Auralink with your existing tools like Slack, Zoom, or Microsoft Teams, and start gaining actionable insights immediately.",
+      "GoUS is a comprehensive platform designed specifically for international students arriving in the United States. We help you compare all major US mobile carriers, understand different plan options, and guide you through the activation process. Our platform aggregates information from AT&T, Verizon, T-Mobile, and dozens of MVNOs like Mint Mobile and Cricket to help you find the best plan for your budget and needs before you even land in America.",
   },
   {
-    question: "How does Auralink use my data to build a custom AI chat?",
+    question: "Which carrier should I choose when I first arrive in the US?",
     answer:
-      "Auralink processes your communication data using advanced natural language processing and machine learning models. All data is encrypted end-to-end and processed in compliance with enterprise-grade security standards. Your data is never shared with third parties, and you maintain complete control over what gets analyzed. The AI learns from patterns in your team's communication to provide personalized insights specific to your organization.",
+      "The best carrier depends on your priorities. For budget-conscious students, MVNOs like Mint Mobile ($15-25/month) or Cricket Wireless offer great value. If you prioritize coverage and reliability, the big three (AT&T, Verizon, T-Mobile) are excellent choices. We recommend checking coverage maps for your university area and considering prepaid plans initially, which don't require a US credit history. Most international students start with a prepaid MVNO and can always switch later.",
   },
   {
-    question: "How do I get started with Auralink and what are the pricing options?",
+    question: "How do I activate a phone plan and what documents do I need?",
     answer:
-      "Getting started is simple: sign up for a free trial, connect your communication tools, and start analyzing within minutes. We offer flexible pricing tiers: Starter (free for small teams), Professional ($29/user/month), and Enterprise (custom pricing with dedicated support). All plans include core features like sentiment analysis and real-time insights. Contact our sales team for volume discounts and custom enterprise solutions.",
+      "Activating a US phone plan is straightforward! You'll need: (1) An unlocked phone that works with US networks, (2) Valid identification (passport works), (3) A US address (your university housing address is fine). For prepaid plans, you can often activate online before arriving or at carrier stores. Most MVNOs ship SIM cards to your US address within 2-3 days. No SSN or credit check is required for prepaid plans. Our activation guides walk you through each carrier's specific process step-by-step.",
   },
 ]
 export const FAQSection = ({ title = "Frequently asked questions", faqs = defaultFAQs }: FAQSectionProps) => {
