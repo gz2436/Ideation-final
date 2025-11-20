@@ -16,163 +16,154 @@ type IntegrationCarouselProps = {
 }
 const defaultTopRowApps: IntegrationApp[] = [
   {
-    name: "Integration 1",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-389-Hc8XBOUI8vkVmIwWQZs33kxMF353Xj.png",
+    name: "AT&T",
+    logo: "/images/960px-AT&T_logo_2016.svg.png",
   },
   {
-    name: "Integration 2",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-407-eyikTTM6ccO0f4I7ZmNk5LpFI4EKOG.png",
+    name: "Verizon",
+    logo: "/images/960px-Verizon_2024.svg.png",
   },
   {
-    name: "Integration 3",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-379-5hDaxwIw4LzjwXzWuorEXi7ESrGYl1.png",
+    name: "T-Mobile",
+    logo: "/images/T-Mobile_US_Logo_2020_RGB_Magenta_on_Transparent.svg",
   },
   {
-    name: "Integration 4",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-374-bp0RaoVnQI1JMqR9fjessWI8v33kLV.png",
+    name: "Mint Mobile",
+    logo: "/images/Mint_Mobile_Logo.svg",
   },
   {
-    name: "Integration 5",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-381-eKw7vkCp2Wq9hivZJaN1ERJdjCqR0d.png",
+    name: "Cricket Wireless",
+    logo: "/images/640px-Cricket_Wireless_(2014).svg.png",
   },
   {
-    name: "Integration 6",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-401-F6mjMLGEZt4HAohKA889Z8Gf5fMzIw.png",
+    name: "Metro by T-Mobile",
+    logo: "/images/640px-Metro_By_T-Mobile_2022.svg.png",
   },
   {
-    name: "Integration 7",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-403-HnBAGFYWgxxMGrH2PI45UorQOsQHFo.png",
+    name: "Visible",
+    logo: "/images/Visible_by_verizon_logo.svg",
   },
   {
-    name: "Integration 1",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-389-Hc8XBOUI8vkVmIwWQZs33kxMF353Xj.png",
+    name: "AT&T",
+    logo: "/images/960px-AT&T_logo_2016.svg.png",
   },
   {
-    name: "Integration 2",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-407-eyikTTM6ccO0f4I7ZmNk5LpFI4EKOG.png",
+    name: "Verizon",
+    logo: "/images/960px-Verizon_2024.svg.png",
   },
   {
-    name: "Integration 3",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-379-5hDaxwIw4LzjwXzWuorEXi7ESrGYl1.png",
+    name: "T-Mobile",
+    logo: "/images/T-Mobile_US_Logo_2020_RGB_Magenta_on_Transparent.svg",
   },
   {
-    name: "Integration 4",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-374-bp0RaoVnQI1JMqR9fjessWI8v33kLV.png",
+    name: "US Cellular",
+    logo: "/images/960px-United_States_Cellular_Corporation_logo.svg.png",
   },
   {
-    name: "Integration 5",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-381-eKw7vkCp2Wq9hivZJaN1ERJdjCqR0d.png",
+    name: "Boost Mobile",
+    logo: "/images/960px-Boost_Mobile_(United_States)_logo.svg.png",
   },
 ]
 const defaultBottomRowApps: IntegrationApp[] = [
   {
-    name: "Integration 6",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-401-F6mjMLGEZt4HAohKA889Z8Gf5fMzIw.png",
+    name: "Google Fi",
+    logo: "/images/Google_Fi_Wireless_-_Logo,_Text_(2023).svg",
   },
   {
-    name: "Integration 7",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-403-HnBAGFYWgxxMGrH2PI45UorQOsQHFo.png",
+    name: "Consumer Cellular",
+    logo: "/images/Consumer_Cellular_logo.svg",
   },
   {
-    name: "Integration 1",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-389-Hc8XBOUI8vkVmIwWQZs33kxMF353Xj.png",
+    name: "Spectrum Mobile",
+    logo: "/images/Spectrum_Mobile_Logo.svg",
   },
   {
-    name: "Integration 2",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-407-eyikTTM6ccO0f4I7ZmNk5LpFI4EKOG.png",
+    name: "Xfinity Mobile",
+    logo: "/images/960px-Xfinity_Mobile.svg.png",
   },
   {
-    name: "Integration 3",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-379-5hDaxwIw4LzjwXzWuorEXi7ESrGYl1.png",
+    name: "Mint Mobile",
+    logo: "/images/Mint_Mobile_Logo.svg",
   },
   {
-    name: "Integration 4",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-374-bp0RaoVnQI1JMqR9fjessWI8v33kLV.png",
+    name: "Cricket Wireless",
+    logo: "/images/640px-Cricket_Wireless_(2014).svg.png",
   },
   {
-    name: "Integration 5",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-381-eKw7vkCp2Wq9hivZJaN1ERJdjCqR0d.png",
+    name: "Metro by T-Mobile",
+    logo: "/images/640px-Metro_By_T-Mobile_2022.svg.png",
   },
   {
-    name: "Integration 6",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-401-F6mjMLGEZt4HAohKA889Z8Gf5fMzIw.png",
+    name: "Visible",
+    logo: "/images/Visible_by_verizon_logo.svg",
   },
   {
-    name: "Integration 7",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-403-HnBAGFYWgxxMGrH2PI45UorQOsQHFo.png",
+    name: "AT&T",
+    logo: "/images/960px-AT&T_logo_2016.svg.png",
   },
   {
-    name: "Integration 1",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-389-Hc8XBOUI8vkVmIwWQZs33kxMF353Xj.png",
+    name: "Verizon",
+    logo: "/images/960px-Verizon_2024.svg.png",
   },
   {
-    name: "Integration 2",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-407-eyikTTM6ccO0f4I7ZmNk5LpFI4EKOG.png",
+    name: "US Cellular",
+    logo: "/images/960px-United_States_Cellular_Corporation_logo.svg.png",
   },
   {
-    name: "Integration 3",
-    logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logoipsum-379-5hDaxwIw4LzjwXzWuorEXi7ESrGYl1.png",
+    name: "Boost Mobile",
+    logo: "/images/960px-Boost_Mobile_(United_States)_logo.svg.png",
   },
 ]
 
 // @component: IntegrationCarousel
 export const IntegrationCarousel = ({
-  buttonText = "Explore Integrations",
+  buttonText = "Compare Plans",
   buttonHref = "#",
-  title = "Integrates with your entire collaboration stack.",
-  subtitle = "Connect Auralink to Slack, Zoom, Notion, Google Meet, and dozens of others to analyze communication seamlessly.",
+  title = "Supporting All Major US Carriers",
+  subtitle = "From AT&T and Verizon to budget-friendly MVNOs like Mint Mobile and Cricket —\nwe help you compare plans across every major network to find your perfect match.",
   topRowApps = defaultTopRowApps,
-  bottomRowApps = defaultBottomRowApps,
 }: IntegrationCarouselProps) => {
   const topRowRef = useRef<HTMLDivElement>(null)
-  const bottomRowRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     let topAnimationId: number
-    let bottomAnimationId: number
     let topPosition = 0
-    let bottomPosition = 0
+
+    // Set initial position to create seamless loop for right-to-left scroll
+    if (topRowRef.current) {
+      topPosition = -(topRowRef.current.scrollWidth / 2)
+      topRowRef.current.style.transform = `translateX(${topPosition}px)`
+    }
+
     const animateTopRow = () => {
       if (topRowRef.current) {
-        topPosition -= 0.5
-        if (Math.abs(topPosition) >= topRowRef.current.scrollWidth / 2) {
-          topPosition = 0
+        topPosition += 0.3  // Move right (from negative toward zero)
+        if (topPosition >= 0) {
+          topPosition = -(topRowRef.current.scrollWidth / 2)
         }
         topRowRef.current.style.transform = `translateX(${topPosition}px)`
       }
       topAnimationId = requestAnimationFrame(animateTopRow)
     }
-    const animateBottomRow = () => {
-      if (bottomRowRef.current) {
-        bottomPosition -= 0.65
-        if (Math.abs(bottomPosition) >= bottomRowRef.current.scrollWidth / 2) {
-          bottomPosition = 0
-        }
-        bottomRowRef.current.style.transform = `translateX(${bottomPosition}px)`
-      }
-      bottomAnimationId = requestAnimationFrame(animateBottomRow)
-    }
     topAnimationId = requestAnimationFrame(animateTopRow)
-    bottomAnimationId = requestAnimationFrame(animateBottomRow)
     return () => {
       cancelAnimationFrame(topAnimationId)
-      cancelAnimationFrame(bottomAnimationId)
     }
   }, [])
 
   // @return
   return (
-    <div className="w-full py-24 bg-white">
-      <div className="max-w-[680px] mx-auto">
+    <div className="w-full py-16 bg-white">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col items-center mb-20"
+          className="flex flex-col items-center mb-10"
         >
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-1">
             <h2
-              className="text-[40px] leading-tight font-normal text-[#222222] text-center tracking-tight mb-0"
+              className="text-[40px] leading-tight font-normal text-[#222222] text-center tracking-tight mb-4"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
                 fontWeight: "400",
@@ -182,7 +173,7 @@ export const IntegrationCarousel = ({
               {title}
             </h2>
             <p
-              className="text-lg leading-7 text-[#666666] text-center max-w-[600px] mt-2"
+              className="text-lg leading-7 text-[#666666] text-center max-w-3xl mt-2 whitespace-pre-wrap"
               style={{
                 fontFamily: "var(--font-figtree), Figtree",
               }}
@@ -190,32 +181,13 @@ export const IntegrationCarousel = ({
               {subtitle}
             </p>
           </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-            className="flex gap-3 mt-6"
-          >
-            <a
-              href={buttonHref}
-              className="inline-block px-5 py-2.5 rounded-full bg-white text-[#222222] text-[15px] font-medium leading-6 text-center whitespace-nowrap transition-all duration-75 ease-out w-[182px] cursor-pointer hover:shadow-lg"
-              style={{
-                boxShadow:
-                  "0 -1px 0 0 rgb(181, 181, 181) inset, -1px 0 0 0 rgb(227, 227, 227) inset, 1px 0 0 0 rgb(227, 227, 227) inset, 0 1px 0 0 rgb(227, 227, 227) inset",
-                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.06) 80%, rgba(255, 255, 255, 0.12))",
-              }}
-            >
-              {buttonText}
-            </a>
-          </motion.div>
         </motion.div>
       </div>
 
-      <div className="h-[268px] -mt-6 mb-0 pb-0 relative overflow-hidden">
+      <div className="relative mx-auto max-w-7xl overflow-hidden" style={{ height: "160px" }}>
         <div
           ref={topRowRef}
-          className="flex items-start gap-6 absolute top-6 whitespace-nowrap"
+          className="flex items-center gap-6 absolute top-0 whitespace-nowrap"
           style={{
             willChange: "transform",
           }}
@@ -223,53 +195,31 @@ export const IntegrationCarousel = ({
           {[...topRowApps, ...topRowApps].map((app, index) => (
             <div
               key={`top-${index}`}
-              className="flex items-center justify-center w-24 h-24 rounded-3xl flex-shrink-0"
+              className="flex items-center justify-center w-40 h-28 rounded-3xl flex-shrink-0 px-5"
               style={{
                 backgroundImage: "linear-gradient(rgb(255, 255, 255), rgb(252, 252, 252))",
                 boxShadow:
                   "rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 1px 1px 0px, rgba(0, 0, 0, 0.04) 0px 3px 3px -1.4px, rgba(0, 0, 0, 0.04) 0px 6px 6px -3px, rgba(0, 0, 0, 0.04) 0px 12px 12px -6px, rgba(0, 0, 0, 0.04) 0px 12px 12px -12px",
               }}
             >
-              <img src={app.logo || "/placeholder.svg"} alt={app.name} className="w-9 h-9 block object-contain" />
+              <img src={app.logo || "/placeholder.svg"} alt={app.name} className="max-w-full max-h-20 block object-contain" />
             </div>
           ))}
         </div>
 
         <div
-          className="absolute top-0 right-0 bottom-0 w-60 h-[268px] z-10 pointer-events-none"
+          className="absolute top-0 right-0 bottom-0 w-60 h-[160px] z-10 pointer-events-none"
           style={{
             backgroundImage: "linear-gradient(90deg, rgba(0, 0, 0, 0), rgb(255, 255, 255))",
           }}
         />
 
         <div
-          className="absolute top-0 left-0 bottom-0 w-60 h-[268px] z-10 pointer-events-none"
+          className="absolute top-0 left-0 bottom-0 w-60 h-[160px] z-10 pointer-events-none"
           style={{
             backgroundImage: "linear-gradient(90deg, rgb(255, 255, 255), rgba(0, 0, 0, 0))",
           }}
         />
-
-        <div
-          ref={bottomRowRef}
-          className="flex items-start gap-6 absolute top-[148px] whitespace-nowrap"
-          style={{
-            willChange: "transform",
-          }}
-        >
-          {[...bottomRowApps, ...bottomRowApps].map((app, index) => (
-            <div
-              key={`bottom-${index}`}
-              className="flex items-center justify-center w-24 h-24 rounded-3xl flex-shrink-0"
-              style={{
-                backgroundImage: "linear-gradient(rgb(255, 255, 255), rgb(252, 252, 252))",
-                boxShadow:
-                  "rgba(0, 0, 0, 0.04) 0px 0px 0px 1px, rgba(0, 0, 0, 0.04) 0px 1px 1px 0px, rgba(0, 0, 0, 0.04) 0px 3px 3px -1.4px, rgba(0, 0, 0, 0.04) 0px 6px 6px -3px, rgba(0, 0, 0, 0.04) 0px 12px 12px -6px, rgba(0, 0, 0, 0.04) 0px 12px 12px -12px",
-              }}
-            >
-              <img src={app.logo || "/placeholder.svg"} alt={app.name} className="w-9 h-9 block object-contain" />
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   )

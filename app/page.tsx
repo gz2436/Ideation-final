@@ -8,13 +8,14 @@ import { FAQSection } from "@/components/FAQSection"
 import { Footer } from "@/components/Footer"
 
 export default function Page() {
+  // Main landing page
   return (
     <>
       <PortfolioNavbar />
       <ProductTeaserCard />
+      <IntegrationCarousel />
       <BankingScaleHero />
       <CaseStudiesCarousel />
-      <IntegrationCarousel />
       <PricingSection />
       <FAQSection />
       <Footer />
