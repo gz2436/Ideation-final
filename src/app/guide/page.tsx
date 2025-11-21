@@ -25,10 +25,10 @@ export default function GuidePage() {
         <>
             <PortfolioNavbar />
 
-            <div className="min-h-screen bg-[#FAFAFA] pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-20">
+            <div className="min-h-screen bg-[#FAFAFA] pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20">
 
                 {/* Magazine Hero Section */}
-                <section className="px-8 md:px-12 mb-20">
+                <section className="px-4 sm:px-6 md:px-12 mb-12 md:mb-20">
                     <div className="max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -99,7 +99,7 @@ export default function GuidePage() {
                 </section>
 
                 {/* Categories Bar - Centered */}
-                <section className="px-8 md:px-12 mb-12">
+                <section className="px-4 sm:px-6 md:px-12 mb-8 md:mb-12">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex items-center justify-center gap-3 flex-wrap pb-4 bg-[#FAFAFA]/95 backdrop-blur-sm py-2">
                             {categories.map((cat) => (
@@ -119,7 +119,7 @@ export default function GuidePage() {
                 </section>
 
                 {/* Grid */}
-                <section className="px-8 md:px-12">
+                <section className="px-4 sm:px-6 md:px-12">
                     <div className="max-w-6xl mx-auto">
                         <motion.div
                             layout
@@ -184,7 +184,7 @@ export default function GuidePage() {
                 </section>
 
                 {/* Newsletter Section - Compact & Consistent */}
-                <section className="px-8 md:px-12 mt-16 mb-12">
+                <section className="px-4 sm:px-6 md:px-12 mt-12 md:mt-16 mb-12">
                     <div className="max-w-2xl mx-auto bg-white rounded-2xl p-6 text-center border border-gray-200 shadow-sm">
                         <h2 className="text-lg md:text-xl font-bold text-gray-900 mb-2">Stay smarter than your carrier.</h2>
                         <p className="text-gray-600 mb-5 text-sm max-w-md mx-auto">Get the latest plan drops and money-saving tips.</p>
