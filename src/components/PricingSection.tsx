@@ -99,9 +99,9 @@ export function PricingSection() {
 
         {/* CTA Button */}
         <div className="mt-12 text-center">
-          <button className="text-[#202020] border border-[#202020] px-[18px] py-[15px] rounded-full font-figtree text-lg transition-all duration-200 hover:shadow-md">
+          <a href="/plans" className="inline-block text-[#202020] border border-[#202020] px-[18px] py-[15px] rounded-full font-figtree text-lg transition-all duration-200 hover:shadow-md">
             Compare Full Plan Details
-          </button>
+          </a>
         </div>
       </div>
     </section>
