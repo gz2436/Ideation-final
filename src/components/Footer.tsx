@@ -29,37 +29,35 @@ const defaultSections: FooterSection[] = [
   {
     title: "Plans",
     links: [
-      { label: "Carrier Comparison", href: "#carriers" },
-      { label: "Plan Finder", href: "#plans" },
-      { label: "Student Guides", href: "#guides" },
-      { label: "Activation Help", href: "#activation" },
+      { label: "Carrier Comparison", href: "/plans" },
+      { label: "Plan Finder", href: "/plans" },
+      { label: "Student Guides", href: "/guide" },
+      { label: "Activation Help", href: "/faq" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Getting Started", href: "#getting-started" },
-      { label: "University Partners", href: "#partners" },
-      { label: "Blog", href: "#blog" },
-      { label: "Support Center", href: "#support" },
+      { label: "Getting Started", href: "/guide" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Blog", href: "/guide" },
+      { label: "Support Center", href: "/faq" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "About Us", href: "#about" },
-      { label: "Contact", href: "#contact" },
-      { label: "Partnerships", href: "#partnerships" },
-      { label: "Careers", href: "#careers" },
+      { label: "About Us", href: "/about" },
+      { label: "Contact", href: "mailto:test@gmail.com" },
+      { label: "Partnerships", href: "/about" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms of Service", href: "#terms" },
-      { label: "Student Data Protection", href: "#data-protection" },
-      { label: "Cookie Policy", href: "#cookies" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+      { label: "Cookie Policy", href: "#" },
     ],
   },
 ]
@@ -71,8 +69,8 @@ export const Footer = ({
   socialLinks = {
     twitter: "https://twitter.com",
     linkedin: "https://linkedin.com",
-    github: "https://github.com",
-    email: "hello@gous.com",
+    github: "https://github.com/gz2436/Ideation-final",
+    email: "test@gmail.com",
   },
   copyrightText,
 }: FooterProps) => {
@@ -185,26 +183,10 @@ export const Footer = ({
           transition={{ duration: 0.5, delay: 0.6 }}
           className="pt-8 border-t border-[#e5e5e5]"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex justify-center items-center">
             <p className="text-sm text-[#666666]" style={{ fontFamily: "Figtree" }}>
               {copyright}
             </p>
-            <div className="flex items-center gap-6">
-              <a
-                href="#status"
-                className="text-sm text-[#666666] hover:text-[#202020] transition-colors duration-150"
-                style={{ fontFamily: "Figtree" }}
-              >
-                Status
-              </a>
-              <a
-                href="#sitemap"
-                className="text-sm text-[#666666] hover:text-[#202020] transition-colors duration-150"
-                style={{ fontFamily: "Figtree" }}
-              >
-                Sitemap
-              </a>
-            </div>
           </div>
         </motion.div>
       </div>

@@ -7,12 +7,12 @@ import Link from "next/link"
 
 const navigationLinks = [
   {
-    name: "Plans",
-    href: "/plans",
-  },
-  {
     name: "Guide",
     href: "/guide",
+  },
+  {
+    name: "Plans",
+    href: "/plans",
   },
   {
     name: "FAQ",

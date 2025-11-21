@@ -183,35 +183,42 @@ export default function PlansPage() {
             <div className="min-h-screen bg-[#FAFAFA] pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-20">
                 {/* Hero Section */}
                 <section className="px-6 mb-12">
-                    <div className="max-w-5xl mx-auto text-center">
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] md:leading-[1.1] lg:leading-[60px] tracking-tight text-[#202020] mb-6 font-medium"
-                            style={{ fontFamily: 'var(--font-figtree), Figtree' }}
-                        >
-                            Find your perfect plan.
-                        </motion.h1>
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="text-base sm:text-lg leading-6 sm:leading-7 text-muted-foreground max-w-2xl mx-auto"
-                            style={{ fontFamily: 'var(--font-figtree), Figtree' }}
-                        >
-                            Compare the best student phone plans.
-                        </motion.p>
+                    <div className="max-w-5xl mx-auto">
+                        <div className="text-center mb-12">
+                            <motion.h1
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#202020] mb-4 tracking-tight leading-[1.1]"
+                                style={{ fontFamily: 'var(--font-figtree), Figtree' }}
+                            >
+                                Find your perfect plan.
+                            </motion.h1>
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 }}
+                                className="text-base sm:text-lg leading-6 sm:leading-7 text-gray-500"
+                                style={{ fontFamily: 'var(--font-figtree), Figtree' }}
+                            >
+                                Compare the best student phone plans.
+                            </motion.p>
+                        </div>
                     </div>
                 </section>
 
                 {/* Top Picks - Clean Cards */}
                 <section className="px-6 mb-16">
                     <div className="max-w-5xl mx-auto">
-                        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-6 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Editor's Choice</h2>
+                        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-12 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Editor's Choice</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
 
                             {/* Verizon (Left) */}
-                            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 }}
+                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100"
+                            >
                                 <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
                                 <div className="flex items-center justify-between w-full mb-4">
                                     <img src="/images/960px-Verizon_2024.svg.png" alt="Verizon" className="h-6 w-auto object-contain" />
@@ -228,10 +235,15 @@ export default function PlansPage() {
                                 <div className="text-xs text-gray-400">
                                     *Loyalty discounts available
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Mint Mobile (Middle - Highlighted) */}
-                            <div className="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-105 z-10">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-105 z-10 hover:scale-110"
+                            >
                                 <div className="absolute top-0 left-0 w-full h-1.5 bg-green-500"></div>
                                 <div className="flex items-center justify-between w-full mb-6">
                                     <img src="/images/Mint_Mobile_Logo.svg" alt="Mint" className="h-8 w-auto object-contain" />
@@ -248,10 +260,15 @@ export default function PlansPage() {
                                 <div className="text-xs text-gray-400">
                                     *New customer offer
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* AT&T (Right) */}
-                            <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100"
+                            >
                                 <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
                                 <div className="flex items-center justify-between w-full mb-4">
                                     <img src="/images/960px-AT&T_logo_2016.svg.png" alt="AT&T" className="h-8 w-auto object-contain" />
@@ -268,11 +285,11 @@ export default function PlansPage() {
                                 <div className="text-xs text-gray-400">
                                     *Online offer
                                 </div>
-                            </div>
+                            </motion.div>
 
                         </div>
                     </div>
-                </section>
+                </section >
                 {/* All Plans - Table Format */}
                 <section className="px-6">
                     <div className="max-w-5xl mx-auto">
@@ -463,8 +480,8 @@ export default function PlansPage() {
                         </div>
 
                     </div>
-                </section>
-            </div>
+                </section >
+            </div >
 
             <Footer />
         </>

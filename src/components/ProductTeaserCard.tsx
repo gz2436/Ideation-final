@@ -20,16 +20,16 @@ type ProductTeaserCardProps = {
 export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   const {
     dailyVolume = "1,430,992,688",
-    dailyVolumeLabel = "STUDENTS HELPED THIS YEAR",
+    dailyVolumeLabel = "Integrated Design and Media, M.S.",
     headline = "Your Complete Guide to\nUS Phone Plans",
-    subheadline = "GoUS helps international students find, compare, and activate the perfect phone plan with honest recommendations and step-by-step guides.",
+    subheadline = "A final project for Ideation & Prototyping 2025 Fall.",
     description = "Trusted by fast-growing teams and enterprises, Auralink powers smarter communication across 1,000+ organizations — with enterprise-grade security, multilingual analysis, and instant emotional detection.",
     videoSrc = "https://cdn.sanity.io/files/1t8iva7t/production/a2cbbed7c998cf93e7ecb6dae75bab42b13139c2.mp4",
     posterSrc = "/images/design-mode/9ad78a5534a46e77bafe116ce1c38172c60dc21a-1069x1068.png",
     primaryButtonText = "Get Started",
-    primaryButtonHref = "",
+    primaryButtonHref = "/guide",
     secondaryButtonText = "View Plans",
-    secondaryButtonHref = "",
+    secondaryButtonHref = "/plans",
   } = props
 
   // Mouse tracking for gradient orb
@@ -46,7 +46,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   // @return
   return (
     <section
-      className="w-full px-6 sm:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-0 relative bg-white overflow-hidden"
+      className="w-full px-6 sm:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-0 relative bg-white overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -173,9 +173,10 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
           {/* Content */}
           <div className="flex flex-col justify-center items-center h-full max-w-[900px] mx-auto text-center">
             <a
-              href={primaryButtonHref}
-              onClick={(e) => e.preventDefault()}
-              className="flex flex-col gap-1 text-[#666666] items-center"
+              href="https://engineering.nyu.edu/academics/programs/integrated-design-media-ms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col gap-1 text-[#666666] items-center hover:text-[#202020] transition-colors"
             >
               <motion.span
                 initial={{
@@ -224,7 +225,6 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             <div className="flex flex-col items-center gap-4">
               <a
                 href={primaryButtonHref}
-                onClick={(e) => e.preventDefault()}
                 className="relative inline-block rounded-full p-[3px] group hover:shadow-md transition-shadow duration-200 cursor-pointer overflow-hidden"
               >
                 {/* Rainbow Border Mask Wrapper */}
@@ -248,7 +248,6 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
 
               <a
                 href={secondaryButtonHref}
-                onClick={(e) => e.preventDefault()}
                 className="text-sm font-medium text-[#555555] hover:text-[#202020] transition-colors underline decoration-1 underline-offset-4"
               >
                 {secondaryButtonText}

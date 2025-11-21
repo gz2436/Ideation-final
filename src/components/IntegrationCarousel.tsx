@@ -118,7 +118,7 @@ const defaultBottomRowApps: IntegrationApp[] = [
 // @component: IntegrationCarousel
 export const IntegrationCarousel = ({
   buttonText = "Compare Plans",
-  buttonHref = "#",
+  buttonHref = "/plans",
   title = "Supporting All Major US Carriers",
   subtitle = "From AT&T and Verizon to budget-friendly MVNOs like Mint Mobile and Cricket —\nwe help you compare plans across every major network to find your perfect match.",
   topRowApps = defaultTopRowApps,
@@ -152,7 +152,7 @@ export const IntegrationCarousel = ({
 
   // @return
   return (
-    <div className="w-full py-12 md:py-16 bg-white">
+    <div className="w-full py-16 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
