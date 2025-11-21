@@ -46,56 +46,115 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   // @return
   return (
     <section
-      className="w-full px-6 sm:px-8 pt-28 sm:pt-36 md:pt-40 pb-0 relative bg-white overflow-hidden"
+      className="w-full px-6 sm:px-8 pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-0 relative bg-white overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {/* Mesh Gradient Background - Follows Mouse with Smooth Delay */}
-      <motion.div
-        className="absolute w-[900px] h-[900px] rounded-full blur-[100px] z-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at center, rgba(255, 140, 66, 0.15) 0%, rgba(255, 210, 63, 0.08) 40%, rgba(255, 165, 0, 0.05) 70%, transparent 100%)",
-          left: `${mousePos.x}%`,
-          top: `${mousePos.y}%`,
-          transform: "translate(-50%, -50%)",
-        }}
-        animate={{
-          opacity: isHovering ? 1 : 0,
-        }}
-        transition={{
-          opacity: { duration: 0.5, ease: "easeOut" },
-          left: { type: "spring", damping: 30, stiffness: 200 },
-          top: { type: "spring", damping: 30, stiffness: 200 },
-        }}
-      />
+      <style jsx>{`
+        @keyframes gradient-flow {
+          0% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        @keyframes spin-centered {
+          from {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+          to {
+            transform: translate(-50%, -50%) rotate(360deg);
+          }
+        }
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .gradient-text {
+          background: linear-gradient(
+            to right,
+            #EA4335 0%,
+            #FF8C42 15%,
+            #FBBC04 30%,
+            #34A853 45%,
+            #4285F4 60%,
+            #EA4335 75%,
+            #FF8C42 90%,
+            #FBBC04 100%
+          );
+          background-size: 400% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradient-flow 6s linear infinite;
+        }
+        .google-rainbow-bg {
+          background: conic-gradient(
+            from 0deg,
+            #EA4335,
+            #FF8C42,
+            #FBBC04,
+            #34A853,
+            #4285F4,
+            #EA4335
+          );
+          animation: spin-centered 4s linear infinite;
+        }
+      `}</style>
+      <div className="absolute inset-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
+        <motion.div
+          className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[600px] lg:h-[600px] rounded-full blur-[60px] sm:blur-[80px] lg:blur-[100px] z-0 pointer-events-none overflow-hidden"
+          style={{
+            left: `${mousePos.x}%`,
+            top: `${mousePos.y}%`,
+            transform: "translate(-50%, -50%)",
+          }}
+          animate={{
+            opacity: isHovering ? 0.8 : 0,
+          }}
+          transition={{
+            opacity: { duration: 0.5, ease: "easeOut" },
+            left: { type: "spring", damping: 30, stiffness: 200 },
+            top: { type: "spring", damping: 30, stiffness: 200 },
+          }}
+        >
+          <div
+            className="w-full h-full rounded-full"
+            style={{
+              background: "conic-gradient(from 0deg, #EA4335, #FF8C42, #FBBC04, #34A853, #4285F4, #EA4335)",
+              animation: "spin 10s linear infinite",
+              opacity: 0.6
+            }}
+          />
+        </motion.div>
 
-      {/* Secondary lighter glow for depth */}
-      <motion.div
-        className="absolute w-[600px] h-[600px] rounded-full blur-[80px] z-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(circle at center, rgba(255, 210, 63, 0.2) 0%, rgba(255, 165, 0, 0.1) 50%, transparent 100%)",
-          left: `${mousePos.x}%`,
-          top: `${mousePos.y}%`,
-          transform: "translate(-50%, -50%)",
-        }}
-        animate={{
-          opacity: isHovering ? 0.6 : 0,
-        }}
-        transition={{
-          opacity: { duration: 0.6, ease: "easeOut" },
-          left: { type: "spring", damping: 25, stiffness: 150 },
-          top: { type: "spring", damping: 25, stiffness: 150 },
-        }}
-      />
+        {/* Secondary lighter glow for depth */}
+        <motion.div
+          className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[400px] lg:h-[400px] rounded-full blur-[40px] sm:blur-[60px] lg:blur-[80px] z-0 pointer-events-none"
+          style={{
+            background: "radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
+            left: `${mousePos.x}%`,
+            top: `${mousePos.y}%`,
+            transform: "translate(-50%, -50%)",
+          }}
+          animate={{
+            opacity: isHovering ? 0.4 : 0,
+          }}
+          transition={{
+            opacity: { duration: 0.6, ease: "easeOut" },
+            left: { type: "spring", damping: 25, stiffness: 150 },
+            top: { type: "spring", damping: 25, stiffness: 150 },
+          }}
+        />
+      </div>
 
-      {/* Gradient fade-out at bottom for smooth transition */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-32 z-10 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
-        }}
-      />
+
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -143,43 +202,13 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </a>
 
             <h1
-              className="text-4xl sm:text-[44px] md:text-[56px] leading-[1.1] md:leading-[60px] tracking-tight text-[#202020] max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] md:leading-[1.1] lg:leading-[60px] tracking-tight text-[#202020] max-w-full sm:max-w-[600px] md:max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
               style={{
                 fontWeight: "500",
                 fontFamily: "var(--font-figtree), Figtree",
               }}
             >
-              <style jsx>{`
-                @keyframes gradient-flow {
-                  0% {
-                    background-position: 100% 50%;
-                  }
-                  100% {
-                    background-position: 0% 50%;
-                  }
-                }
-                .gradient-text {
-                  background: linear-gradient(
-                    to right,
-                    #EA4335 0%,
-                    #FF8C42 15%,
-                    #FBBC04 30%,
-                    #34A853 45%,
-                    #4285F4 60%,
-                    #EA4335 75%,
-                    #FF8C42 90%,
-                    #FBBC04 100%
-                  );
-                  background-size: 400% auto;
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  background-clip: text;
-                  animation: gradient-flow 6s linear infinite;
-                }
-                
-
-              `}</style>
-              Your Complete <span className="gradient-text">Guide</span> to{"\n"}US Phone Plans
+              Your Complete Guide to{"\n"}US Phone Plans
             </h1>
 
             <p
@@ -196,9 +225,25 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
               <a
                 href={primaryButtonHref}
                 onClick={(e) => e.preventDefault()}
-                className="block cursor-pointer text-[#202020] border border-[#202020] rounded-full px-[18px] py-[15px] text-base leading-4 whitespace-nowrap transition-all duration-200 hover:shadow-md"
+                className="relative inline-block rounded-full p-[3px] group hover:shadow-md transition-shadow duration-200 cursor-pointer overflow-hidden"
               >
-                {primaryButtonText}
+                {/* Rainbow Border Mask Wrapper */}
+                <div
+                  className="absolute inset-0 rounded-full z-0 pointer-events-none"
+                  style={{
+                    padding: '3px',
+                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                    WebkitMaskComposite: 'xor',
+                    maskComposite: 'exclude'
+                  }}
+                >
+                  <span className="absolute top-1/2 left-1/2 w-[300%] h-[800%] google-rainbow-bg"></span>
+                </div>
+
+                {/* Glassmorphism Content */}
+                <span className="relative block bg-white/60 backdrop-blur-md rounded-full px-[18px] py-[15px] text-[#202020] text-base leading-4 whitespace-nowrap z-10">
+                  {primaryButtonText}
+                </span>
               </a>
 
               <a
