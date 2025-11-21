@@ -1,6 +1,8 @@
 "use client"
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { Github, Twitter, Linkedin, Mail, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
+import { useState } from "react"
+import { UpdateIcon } from "@radix-ui/react-icons"
 
 type FooterLink = {
   label: string
@@ -76,6 +78,20 @@ export const Footer = ({
 }: FooterProps) => {
   const currentYear = new Date().getFullYear()
   const copyright = copyrightText || `© ${currentYear} ${companyName}. All rights reserved.`
+
+  // State to track loading for specific elements
+  const [loadingState, setLoadingState] = useState<Record<string, boolean>>({})
+
+  const handleFakeLoading = (e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    setLoadingState(prev => ({ ...prev, [id]: true }))
+
+    // Stop spinning after 2 seconds
+    setTimeout(() => {
+      setLoadingState(prev => ({ ...prev, [id]: false }))
+    }, 2000)
+  }
+
   return (
     <footer className="w-full bg-[#fafafa] border-t border-[#e5e5e5]">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-14 md:py-16">
@@ -133,10 +149,15 @@ export const Footer = ({
               {socialLinks.email && (
                 <a
                   href={`mailto:${socialLinks.email}`}
+                  onClick={(e) => handleFakeLoading(e, 'email-icon')}
                   className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#666666] hover:text-[#202020] hover:border-[#202020] transition-colors duration-150"
                   aria-label="Email"
                 >
-                  <Mail className="w-4 h-4" />
+                  {loadingState['email-icon'] ? (
+                    <Loader2 className="w-4 h-4 animate-spin text-[#202020]" />
+                  ) : (
+                    <Mail className="w-4 h-4" />
+                  )}
                 </a>
               )}
             </div>
@@ -159,17 +180,26 @@ export const Footer = ({
                 {section.title}
               </h4>
               <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <li key={linkIndex}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-[#666666] hover:text-[#202020] transition-colors duration-150"
-                      style={{ fontFamily: "Figtree" }}
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
+                {section.links.map((link, linkIndex) => {
+                  const isContactLink = link.label === "Contact" || link.href.startsWith("mailto:")
+                  const linkId = `link-${index}-${linkIndex}`
+
+                  return (
+                    <li key={linkIndex}>
+                      <a
+                        href={link.href}
+                        onClick={(e) => isContactLink ? handleFakeLoading(e, linkId) : undefined}
+                        className="text-sm text-[#666666] hover:text-[#202020] transition-colors duration-150 flex items-center gap-2"
+                        style={{ fontFamily: "Figtree" }}
+                      >
+                        {link.label}
+                        {isContactLink && loadingState[linkId] && (
+                          <Loader2 className="w-3 h-3 animate-spin" />
+                        )}
+                      </a>
+                    </li>
+                  )
+                })}
               </ul>
             </motion.div>
           ))}

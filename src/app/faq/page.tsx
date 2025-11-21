@@ -5,11 +5,21 @@ import { motion, AnimatePresence } from "framer-motion"
 import { PortfolioNavbar } from "@/components/PortfolioNavbar"
 import { Footer } from "@/components/Footer"
 import { faqs } from "@/data/faqs"
-import { ChevronDown, ChevronUp, Search, CreditCard, Signal, Smartphone, Globe } from "lucide-react"
+import { ChevronDown, ChevronUp, Search, CreditCard, Signal, Smartphone, Globe, Loader2 } from "lucide-react"
 
 export default function FAQPage() {
     const [searchQuery, setSearchQuery] = useState("")
     const [openId, setOpenId] = useState<string | null>(null)
+    const [loadingState, setLoadingState] = useState<Record<string, boolean>>({})
+
+    const handleFakeLoading = (id: string) => {
+        setLoadingState(prev => ({ ...prev, [id]: true }))
+
+        // Stop spinning after 2 seconds
+        setTimeout(() => {
+            setLoadingState(prev => ({ ...prev, [id]: false }))
+        }, 2000)
+    }
 
     const toggleAccordion = (id: string) => {
         setOpenId(openId === id ? null : id)
@@ -40,7 +50,7 @@ export default function FAQPage() {
             <div className="min-h-screen bg-[#FAFAFA] pt-20 pb-20">
 
                 {/* Search Hero Section - Light Theme */}
-                <section className="bg-white text-[#202020] px-8 md:px-12 pt-32 pb-24 relative overflow-hidden">
+                <section className="bg-white text-[#202020] px-4 sm:px-6 md:px-12 pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 relative overflow-hidden">
                     {/* Abstract Background Shapes - Subtle */}
                     <div className="absolute top-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-60"></div>
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-60"></div>
@@ -77,7 +87,7 @@ export default function FAQPage() {
                 </section>
 
                 {/* Quick Categories - Floating Cards */}
-                <section className="px-8 md:px-12 -mt-12 mb-20 relative z-20">
+                <section className="px-4 sm:px-6 md:px-12 -mt-8 sm:-mt-10 md:-mt-12 mb-12 md:mb-20 relative z-20">
                     <div className="max-w-5xl mx-auto">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                             {categories.map((cat, index) => (
@@ -99,7 +109,7 @@ export default function FAQPage() {
                 </section>
 
                 {/* FAQ List - Split Columns */}
-                <section className="px-8 md:px-12">
+                <section className="px-4 sm:px-6 md:px-12">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex items-center justify-between mb-10">
                             <h2 className="text-2xl font-bold text-gray-900">
@@ -140,18 +150,24 @@ export default function FAQPage() {
                 </section>
 
                 {/* Contact Support Banner - Compact & Consistent */}
-                <section className="px-8 md:px-12 mt-14">
+                <section className="px-4 sm:px-6 md:px-12 mt-12 md:mt-14">
                     <div className="max-w-2xl mx-auto bg-white rounded-2xl p-6 flex flex-col items-center text-center gap-4 border border-gray-200 shadow-sm">
                         <div>
                             <h3 className="text-lg font-bold text-gray-900 mb-1.5">Still need help?</h3>
                             <p className="text-gray-600 text-sm">Our team is available Mon-Fri, 9am - 5pm EST.</p>
                         </div>
                         <div className="flex gap-3">
-                            <button className="px-5 py-2.5 bg-white text-gray-700 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors text-sm shadow-sm">
-                                Email Us
+                            <button
+                                onClick={() => handleFakeLoading('email')}
+                                className="px-5 py-2.5 bg-white text-gray-700 font-semibold rounded-full border border-gray-200 hover:bg-gray-50 transition-colors text-sm shadow-sm flex items-center justify-center min-w-[100px]"
+                            >
+                                {loadingState['email'] ? <Loader2 className="w-4 h-4 animate-spin" /> : "Email Us"}
                             </button>
-                            <button className="px-5 py-2.5 bg-[#202020] text-white font-semibold rounded-full hover:bg-gray-800 transition-colors text-sm shadow-sm">
-                                Chat Support
+                            <button
+                                onClick={() => handleFakeLoading('chat')}
+                                className="px-5 py-2.5 bg-[#202020] text-white font-semibold rounded-full hover:bg-gray-800 transition-colors text-sm shadow-sm flex items-center justify-center min-w-[120px]"
+                            >
+                                {loadingState['chat'] ? <Loader2 className="w-4 h-4 animate-spin" /> : "Chat Support"}
                             </button>
                         </div>
                     </div>

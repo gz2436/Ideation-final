@@ -180,9 +180,9 @@ export default function PlansPage() {
         <>
             <PortfolioNavbar />
 
-            <div className="min-h-screen bg-[#FAFAFA] pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-20">
+            <div className="min-h-screen bg-[#FAFAFA] pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20">
                 {/* Hero Section */}
-                <section className="px-6 mb-12">
+                <section className="px-4 sm:px-6 mb-8 md:mb-12">
                     <div className="max-w-5xl mx-auto">
                         <div className="text-center mb-12">
                             <motion.h1
@@ -207,7 +207,7 @@ export default function PlansPage() {
                 </section>
 
                 {/* Top Picks - Clean Cards */}
-                <section className="px-6 mb-16">
+                <section className="px-4 sm:px-6 mb-12 md:mb-16">
                     <div className="max-w-5xl mx-auto">
                         <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-12 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Editor's Choice</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
@@ -291,7 +291,7 @@ export default function PlansPage() {
                     </div>
                 </section >
                 {/* All Plans - Table Format */}
-                <section className="px-6">
+                <section className="px-4 sm:px-6">
                     <div className="max-w-5xl mx-auto">
                         {/* Filter Bar */}
                         <div className="mb-8 sticky top-20 z-30 bg-[#FAFAFA]/90 backdrop-blur-sm py-4 border-b border-gray-200/50">
@@ -434,50 +434,7 @@ export default function PlansPage() {
                             </div>
                         </div>
 
-                        {/* Mobile Card View (Visible only on small screens) */}
-                        <div className="md:hidden space-y-4 mt-4">
-                            {allPlans.map(({ carrier, plan, planId, rating }) => (
-                                <div key={`mobile-${planId}`} className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
-                                    <div className="flex items-center justify-between mb-4">
-                                        <div className="w-20 h-8 flex items-center justify-start">
-                                            <img src={carrier.logo} alt={carrier.name} className="h-full w-auto object-contain" />
-                                        </div>
-                                        <div className="flex flex-col items-end">
-                                            <span className="font-bold text-xl text-gray-900">${plan.price}</span>
-                                            {carrier.studentDiscount && (
-                                                <span className="text-[10px] text-amber-600 font-medium">Student Deal</span>
-                                            )}
-                                        </div>
-                                    </div>
-                                    <div className="flex justify-between items-start mb-3">
-                                        <div>
-                                            <div className="text-base font-semibold text-gray-900">{plan.name}</div>
-                                            <div className="text-sm text-gray-500 mt-1">{plan.data} Data</div>
-                                        </div>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-3 text-xs text-gray-500 mt-4 pt-4 border-t border-gray-100">
-                                        <div className="flex items-center gap-1.5">
-                                            {plan.hotspot ? <CheckIcon className="text-green-500 w-4 h-4" /> : <Cross2Icon className="w-4 h-4" />}
-                                            <span>Hotspot</span>
-                                        </div>
-                                        <div className="flex items-center gap-1.5">
-                                            {plan.intlCalling ? <CheckIcon className="text-green-500 w-4 h-4" /> : <Cross2Icon className="w-4 h-4" />}
-                                            <span>Intl Calls</span>
-                                        </div>
-                                        <div className="flex items-center gap-1.5">
-                                            <span className={`w-2 h-2 rounded-full ${carrier.network === 'Verizon' ? 'bg-red-500' :
-                                                carrier.network === 'T-Mobile' ? 'bg-pink-500' :
-                                                    carrier.network === 'AT&T' ? 'bg-blue-500' : 'bg-gray-400'
-                                                }`}></span>
-                                            {carrier.network}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <StarFilledIcon className="w-3 h-3 text-yellow-400" /> {rating}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+
 
                     </div>
                 </section >

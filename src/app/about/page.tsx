@@ -26,10 +26,10 @@ export default function AboutPage() {
         <>
             <PortfolioNavbar />
 
-            <div className="min-h-screen bg-[#FAFAFA] pt-24 sm:pt-28 md:pt-32 lg:pt-40 pb-20">
+            <div className="min-h-screen bg-[#FAFAFA] pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-20">
 
                 {/* Hero Section - Direct & Clean */}
-                <section className="px-8 md:px-12 mb-20">
+                <section className="px-4 sm:px-6 md:px-12 mb-12 md:mb-20">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1
                             className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-[#202020] mb-6 leading-[1.1] tracking-tight"
@@ -47,8 +47,8 @@ export default function AboutPage() {
                 </section>
 
                 {/* Stats Row - Sorted by size */}
-                <section className="border-y border-gray-100 bg-gray-50/50 py-14 mb-24">
-                    <div className="max-w-6xl mx-auto px-8 md:px-12">
+                <section className="border-y border-gray-100 bg-gray-50/50 py-10 md:py-14 mb-16 md:mb-24">
+                    <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12">
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
                             {[
                                 { label: "Plans Analyzed", value: "500+" },
@@ -74,7 +74,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* The Problem vs The Solution - Narrower & Closer */}
-                <section className="px-8 md:px-12 mb-24">
+                <section className="px-4 sm:px-6 md:px-12 mb-16 md:mb-24">
                     <div className="max-w-4xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Core Values - Horizontal Scroll */}
-                <section className="px-8 md:px-12 mb-20">
+                <section className="px-4 sm:px-6 md:px-12 mb-12 md:mb-20">
                     <div className="max-w-6xl mx-auto">
                         <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-12 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Our Core Values</h2>
 
