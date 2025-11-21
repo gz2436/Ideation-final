@@ -25,14 +25,14 @@ const carriers = [
 const features: CarrierFeature[] = [
   { name: "5G Network Access", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
   { name: "Unlimited Data Plans", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
-  { name: "International Calling", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: false },
+  { name: "International Calling", att: true, verizon: true, tmobile: true, mint: false, cricket: true, visible: true },  // Updated: Visible Plus has it, Mint needs add-on
   { name: "Mobile Hotspot", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
-  { name: "No Contract Required", att: true, verizon: false, tmobile: false, mint: true, cricket: true, visible: true },
+  { name: "No Contract Required", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },  // Updated: All prepaid are no contract
   { name: "eSIM Support", att: true, verizon: true, tmobile: true, mint: true, cricket: false, visible: true },
   { name: "WiFi Calling", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: true },
   { name: "Family Plans Available", att: true, verizon: true, tmobile: true, mint: true, cricket: true, visible: false },
   { name: "Student Discounts", att: true, verizon: true, tmobile: true, mint: false, cricket: false, visible: false },
-  { name: "Monthly Plans Under $30", att: false, verizon: false, tmobile: false, mint: true, cricket: true, visible: true },
+  { name: "Monthly Plans Under $30", att: false, verizon: false, tmobile: false, mint: true, cricket: false, visible: true },  // Updated: Visible Basic is $25
 ]
 
 export function PricingSection() {

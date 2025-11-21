@@ -3,50 +3,63 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
+
 const navigationLinks = [
   {
     name: "Plans",
-    href: "#plans",
+    href: "/plans",
   },
   {
     name: "Guide",
-    href: "#guide",
+    href: "/guide",
   },
   {
     name: "FAQ",
-    href: "#faq",
+    href: "/faq",
   },
   {
     name: "About",
-    href: "#about",
+    href: "/about",
   },
-] as any[]
+]
 
 // @component: PortfolioNavbar
 export const PortfolioNavbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
+
+    // Check login state
+    const checkLoginStatus = () => {
+      setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true")
+    }
+
+    checkLoginStatus()
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    // Listen for storage events to update state across tabs/windows
+    window.addEventListener("storage", checkLoginStatus)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("storage", checkLoginStatus)
+    }
   }, [])
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
-  const closeMobileMenu = () => {
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn")
+    setIsLoggedIn(false)
     setIsMobileMenuOpen(false)
-  }
-  const handleLinkClick = (href: string) => {
-    closeMobileMenu()
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-      })
-    }
+    window.location.href = "/"
   }
 
   // @return
@@ -58,8 +71,8 @@ export const PortfolioNavbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex-shrink-0">
-            <button
-              onClick={() => handleLinkClick("#home")}
+            <Link
+              href="/"
               className="text-2xl font-bold text-foreground hover:text-primary transition-colors duration-200"
               style={{
                 fontFamily: "Plus Jakarta Sans, sans-serif",
@@ -73,15 +86,15 @@ export const PortfolioNavbar = () => {
               >
                 GoUS
               </span>
-            </button>
+            </Link>
           </div>
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navigationLinks.map((link) => (
-                <button
+                <Link
                   key={link.name}
-                  onClick={() => handleLinkClick(link.href)}
+                  href={link.href}
                   className="text-foreground hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 relative group"
                   style={{
                     fontFamily: "Figtree, sans-serif",
@@ -90,23 +103,37 @@ export const PortfolioNavbar = () => {
                 >
                   <span>{link.name}</span>
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
-                </button>
+                </Link>
               ))}
             </div>
           </div>
 
           <div className="hidden md:block">
-            <button
-              onClick={() => handleLinkClick("#contact")}
-              className="text-foreground hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 relative group"
-              style={{
-                fontFamily: "Figtree, sans-serif",
-                fontWeight: "400",
-              }}
-            >
-              <span>Get Started</span>
-              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
-            </button>
+            {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="text-foreground hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 relative group"
+                style={{
+                  fontFamily: "Figtree, sans-serif",
+                  fontWeight: "400",
+                }}
+              >
+                <span>Log Out</span>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
+              </button>
+            ) : (
+              <Link
+                href="/login"
+                className="text-foreground hover:text-primary px-3 py-2 text-base font-medium transition-colors duration-200 relative group"
+                style={{
+                  fontFamily: "Figtree, sans-serif",
+                  fontWeight: "400",
+                }}
+              >
+                <span>Login</span>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></div>
+              </Link>
+            )}
           </div>
 
           <div className="md:hidden">
@@ -144,9 +171,10 @@ export const PortfolioNavbar = () => {
           >
             <div className="px-4 sm:px-6 py-6 space-y-4">
               {navigationLinks.map((link) => (
-                <button
+                <Link
                   key={link.name}
-                  onClick={() => handleLinkClick(link.href)}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className="block w-full text-left text-foreground hover:text-primary py-3 text-lg font-medium transition-colors duration-200"
                   style={{
                     fontFamily: "Figtree, sans-serif",
@@ -154,18 +182,31 @@ export const PortfolioNavbar = () => {
                   }}
                 >
                   <span>{link.name}</span>
-                </button>
+                </Link>
               ))}
               <div className="pt-4 border-t border-border">
-                <button
-                  onClick={() => handleLinkClick("#contact")}
-                  className="block w-full text-left rounded-md px-3 py-4 text-base font-medium text-[#555555] hover:bg-gray-50 hover:text-[#202020]"
-                  style={{
-                    fontFamily: "Plus Jakarta Sans, sans-serif",
-                  }}
-                >
-                  Get Started
-                </button>
+                {isLoggedIn ? (
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left rounded-md px-3 py-4 text-base font-medium text-[#555555] hover:bg-gray-50 hover:text-[#202020]"
+                    style={{
+                      fontFamily: "Plus Jakarta Sans, sans-serif",
+                    }}
+                  >
+                    Log Out
+                  </button>
+                ) : (
+                  <Link
+                    href="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block w-full text-left rounded-md px-3 py-4 text-base font-medium text-[#555555] hover:bg-gray-50 hover:text-[#202020]"
+                    style={{
+                      fontFamily: "Plus Jakarta Sans, sans-serif",
+                    }}
+                  >
+                    Login
+                  </Link>
+                )}
               </div>
             </div>
           </motion.div>
