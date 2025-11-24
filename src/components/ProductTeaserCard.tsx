@@ -46,7 +46,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   // @return
   return (
     <section
-      className="w-full px-4 sm:px-6 md:px-8 pt-24 pb-12 sm:pb-0 sm:pt-24 md:pt-32 lg:pt-40 relative bg-white overflow-hidden min-h-[75dvh] sm:min-h-0 flex flex-col justify-center sm:block"
+      className="w-full px-4 sm:px-6 md:px-8 pt-24 pb-12 sm:pb-0 sm:pt-24 md:pt-32 lg:pt-40 relative bg-white overflow-hidden min-h-[80dvh] sm:min-h-0 flex flex-col justify-center sm:block"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -203,7 +203,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
             </a>
 
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] md:leading-[1.1] lg:leading-[60px] tracking-tight text-[#202020] max-w-full sm:max-w-[600px] md:max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-[56px] leading-[1.1] md:leading-[1.1] lg:leading-[60px] tracking-tight text-[#202020] max-w-full sm:max-w-[600px] md:max-w-[700px] mb-6 mt-4 whitespace-pre-wrap text-center"
               style={{
                 fontWeight: "500",
                 fontFamily: "var(--font-figtree), Figtree",
