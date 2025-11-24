@@ -46,7 +46,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   // @return
   return (
     <section
-      className="w-full px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-0 relative bg-white overflow-hidden"
+      className="w-full px-4 sm:px-6 md:px-8 pt-24 pb-32 sm:pb-0 sm:pt-24 md:pt-32 lg:pt-40 relative bg-white overflow-hidden min-h-[85dvh] sm:min-h-0 flex flex-col justify-center sm:block"
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}

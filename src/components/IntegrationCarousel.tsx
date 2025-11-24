@@ -152,14 +152,14 @@ export const IntegrationCarousel = ({
 
   // @return
   return (
-    <div className="w-full py-16 md:py-20 bg-white">
+    <div className="w-full py-8 md:py-20 bg-white flex flex-col-reverse md:block">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="flex flex-col items-center mb-10"
+          className="flex flex-col items-center mb-0 mt-8 md:mt-0 md:mb-10"
         >
           <div className="flex flex-col items-center gap-1">
             <h2
@@ -184,7 +184,7 @@ export const IntegrationCarousel = ({
         </motion.div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl overflow-hidden h-[120px] sm:h-[140px] md:h-[160px]">
+      <div className="relative w-full mx-auto max-w-7xl overflow-hidden h-[120px] sm:h-[140px] md:h-[160px]">
         <div
           ref={topRowRef}
           className="flex items-center gap-6 absolute top-0 whitespace-nowrap"
