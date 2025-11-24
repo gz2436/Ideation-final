@@ -152,7 +152,7 @@ export const IntegrationCarousel = ({
 
   // @return
   return (
-    <div className="w-full py-8 md:py-20 bg-white flex flex-col-reverse md:block">
+    <div className="w-full pt-4 pb-8 md:py-20 bg-white flex flex-col-reverse md:block">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
