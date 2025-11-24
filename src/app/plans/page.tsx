@@ -217,7 +217,7 @@ export default function PlansPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100"
+                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-100 opacity-100 md:scale-95 md:opacity-90 hover:scale-100 hover:opacity-100"
                             >
                                 <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
                                 <div className="flex items-center justify-between w-full mb-4">
@@ -242,11 +242,11 @@ export default function PlansPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="bg-white rounded-xl p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-105 z-10 hover:scale-110"
+                                className="bg-white rounded-xl p-6 md:p-8 border border-gray-200 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-100 md:scale-105 z-10 hover:scale-110"
                             >
                                 <div className="absolute top-0 left-0 w-full h-1.5 bg-green-500"></div>
                                 <div className="flex items-center justify-between w-full mb-6">
-                                    <img src="/images/Mint_Mobile_Logo.svg" alt="Mint" className="h-8 w-auto object-contain" />
+                                    <img src="/images/Mint_Mobile_Logo.svg" alt="Mint" className="h-6 w-auto object-contain" />
                                     <span className="text-[10px] font-bold px-2 py-1 bg-green-100 text-green-700 rounded-full">BEST VALUE</span>
                                 </div>
                                 <div className="mb-6">
@@ -267,11 +267,11 @@ export default function PlansPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-95 opacity-90 hover:scale-100 hover:opacity-100"
+                                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden flex flex-col items-start text-left scale-100 opacity-100 md:scale-95 md:opacity-90 hover:scale-100 hover:opacity-100"
                             >
                                 <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
                                 <div className="flex items-center justify-between w-full mb-4">
-                                    <img src="/images/960px-AT&T_logo_2016.svg.png" alt="AT&T" className="h-8 w-auto object-contain" />
+                                    <img src="/images/960px-AT&T_logo_2016.svg.png" alt="AT&T" className="h-9 w-auto object-contain" />
                                     <span className="text-[10px] font-bold px-2 py-1 bg-blue-50 text-blue-700 rounded-full">BEST COVERAGE</span>
                                 </div>
                                 <div className="mb-4">
