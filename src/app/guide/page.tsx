@@ -28,9 +28,9 @@ export default function GuidePage() {
             <div className="min-h-screen bg-[#FAFAFA] pt-16 sm:pt-28 md:pt-32 lg:pt-40 pb-16 md:pb-20">
 
                 {/* Magazine Hero Section */}
-                <section className="px-4 sm:px-6 md:px-12 mb-8 md:mb-20">
+                <section className="px-4 sm:px-6 md:px-12 mb-24 md:mb-20">
                     <div className="max-w-6xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-12 items-center">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
                             {/* Left: Text Content */}
                             <div className="lg:col-span-5">
@@ -45,7 +45,7 @@ export default function GuidePage() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1 }}
-                                    className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#202020] mb-2 leading-[1.1] tracking-tight"
+                                    className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#202020] mb-4 leading-[1.1] tracking-tight"
                                     style={{ fontFamily: 'var(--font-figtree), Figtree' }}
                                 >
                                     Master your <br className="hidden sm:block" />
@@ -73,7 +73,7 @@ export default function GuidePage() {
                                     transition={{ delay: 0.3 }}
                                     className="block group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 flex flex-col lg:block"
                                 >
-                                    <div className="aspect-[3/2] lg:aspect-[16/9] relative overflow-hidden">
+                                    <div className="aspect-[4/3] lg:aspect-[16/9] relative overflow-hidden">
                                         <img
                                             src={featuredGuide.image}
                                             alt="Featured Article"
