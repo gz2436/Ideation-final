@@ -437,25 +437,180 @@ const Slide4_Research: SlideComponent = () => (
   </SlideContainer>
 );
 
-// --- SLIDE 5: USERS (Placeholder) ---
-const Slide5_Users: SlideComponent = () => (
-  <SlideContainer className="flex items-center justify-center">
-    <SlideTitle title="The Users" subtitle="Three Key Personas" />
-    <div className="flex-1 flex items-center justify-center text-[#86868b]">
-      [Slide 5: User Personas]
-    </div>
-  </SlideContainer>
-);
+// --- SLIDE 5: USERS (3 Personas) ---
+const Slide5_Users: SlideComponent = () => {
+  const personas = [
+    {
+      icon: "✈️",
+      title: "The Newcomer",
+      subtitle: "Freshman • Arrived 2 days ago",
+      pains: ["No SSN = $500 Deposit", "Confusing Plans", "Sim Lock Issues"]
+    },
+    {
+      icon: "💸",
+      title: "The Socialite",
+      subtitle: "Junior • Streaming & Calls",
+      pains: ["Unexpected Overage Fees", "Data Throttled at 20GB", "Auto-Pay Nightmares"]
+    },
+    {
+      icon: "🚇",
+      title: "The Professional",
+      subtitle: "Senior • Job Hunting",
+      pains: ["Subway Dead Zones", "Missed Recruiter Calls", "2FA OTP Delays"]
+    }
+  ];
 
-// --- SLIDE 6: INSIGHT (Placeholder) ---
-const Slide6_Insight: SlideComponent = () => (
-  <SlideContainer className="flex items-center justify-center">
-    <SlideTitle title="The Insight" subtitle="Core Pain Points" />
-    <div className="flex-1 flex items-center justify-center text-[#86868b]">
-      [Slide 6: Key Insights]
-    </div>
-  </SlideContainer>
-);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }
+    }
+  };
+
+  return (
+    <SlideContainer className="flex items-center justify-center bg-gray-50/50">
+      <SlideTitle title="The Users" subtitle="Three Key Personas" />
+
+      <div className="w-full max-w-6xl z-10">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {personas.map((p, i) => (
+            <motion.div
+              key={i}
+              variants={cardVariants}
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-start h-[420px] relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+            >
+              {/* Decorative Top Gradient Line */}
+              <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${i === 0 ? 'from-blue-400 to-blue-500' : i === 1 ? 'from-purple-400 to-pink-500' : 'from-green-400 to-teal-500'}`} />
+
+              <div className="text-6xl mb-6 bg-gray-50 p-4 rounded-xl">{p.icon}</div>
+
+              <h3 className="text-2xl font-bold text-[#1d1d1f] mb-1">{p.title}</h3>
+              <p className="text-[#86868b] font-medium text-sm tracking-wide uppercase mb-8">{p.subtitle}</p>
+
+              <div className="space-y-4 w-full">
+                {p.pains.map((pain, j) => (
+                  <div key={j} className="flex items-center gap-3 text-gray-600 font-medium">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-400 shrink-0" />
+                    {pain}
+                  </div>
+                ))}
+              </div>
+
+              {/* Subtle Background Number */}
+              <div className="absolute -bottom-4 -right-4 text-[120px] font-bold text-gray-50 opacity-50 select-none pointer-events-none group-hover:opacity-100 group-hover:text-gray-100 transition-colors duration-500">
+                {i + 1}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </SlideContainer>
+  );
+};
+
+// --- SLIDE 6: INSIGHT (The Connectivity Gap) ---
+const Slide6_Insight: SlideComponent = () => {
+  return (
+    <SlideContainer className="flex items-center justify-center bg-[#f5f5f7]">
+      <SlideTitle title="The Insight" subtitle="The Connectivity Gap" />
+
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-[500px] z-10">
+
+        {/* Card 1: Cost (Large Left) */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col justify-between shadow-sm relative overflow-hidden group"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+            <svg className="w-32 h-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05 1.18 1.91 2.53 1.91 1.29 0 2.13-.73 2.13-1.65 0-1.22-1.28-1.74-3.05-2.19-1.8-.46-3.48-1.13-3.48-3.29 0-1.79 1.48-2.96 2.97-3.27V4h2.67v1.93c1.41.33 2.63 1.16 2.98 3.02h-1.93c-.14-.84-.97-1.46-2.22-1.46-1.25 0-2.03.73-2.03 1.55 0 1.05 1.23 1.6 2.87 1.96 1.86.41 3.65 1.06 3.65 3.39 0 1.86-1.45 2.98-3.13 3.3z" /></svg>
+          </div>
+          <div>
+            <div className="text-[#EA4335] font-bold uppercase tracking-widest text-sm mb-2">The Price Wall</div>
+            <h3 className="text-4xl font-semibold text-[#1d1d1f] max-w-xs">International students pay <span className="text-[#EA4335]">3x more</span>.</h3>
+          </div>
+          <div className="flex items-end gap-2">
+            <span className="text-[80px] font-bold text-[#1d1d1f] leading-none">300</span>
+            <span className="text-xl font-medium text-gray-500 mb-4">% Premium</span>
+          </div>
+        </motion.div>
+
+        {/* Card 2: Transparency (Top Right) */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-between shadow-sm relative overflow-hidden"
+        >
+          <div>
+            <div className="text-[#FBBC04] font-bold uppercase tracking-widest text-sm mb-1">The Transparency Gap</div>
+            <h3 className="text-2xl font-semibold text-[#1d1d1f]">Hidden Fees</h3>
+            <p className="text-gray-500 mt-2 text-sm">Activation, Sim Kits, Taxes...</p>
+          </div>
+          {/* Visual: Fee Stack */}
+          <div className="flex flex-col gap-1 items-end opacity-60">
+            <div className="w-16 h-2 bg-[#1d1d1f] rounded-full" />
+            <div className="w-24 h-2 bg-[#1d1d1f] rounded-full" />
+            <div className="w-20 h-2 bg-[#FBBC04] rounded-full ml-auto" />
+            <div className="w-12 h-2 bg-[#FBBC04] rounded-full ml-auto" />
+          </div>
+        </motion.div>
+
+        {/* Card 3: Time (Bottom Middle) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between shadow-sm text-white"
+        >
+          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mb-4">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div>
+            <div className="text-4xl font-bold mb-1">48h</div>
+            <div className="text-white/60 text-sm font-medium">To get online</div>
+          </div>
+        </motion.div>
+
+        {/* Card 4: Control (Bottom Right) */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-sm"
+        >
+          <div className="text-[#34A853] font-bold uppercase tracking-widest text-sm mb-1">Control</div>
+          <div className="text-2xl font-semibold text-[#1d1d1f]">Zero Digital<br />Management</div>
+          <div className="flex gap-2 mt-4">
+            <div className="w-2 h-2 rounded-full bg-gray-200" />
+            <div className="w-2 h-2 rounded-full bg-gray-200" />
+            <div className="w-2 h-2 rounded-full bg-[#34A853]" />
+          </div>
+        </motion.div>
+
+      </div>
+    </SlideContainer>
+  );
+};
 
 
 
