@@ -1,8 +1,5 @@
 "use client"
-import { Github, Twitter, Linkedin, Mail, Loader2 } from "lucide-react"
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { UpdateIcon } from "@radix-ui/react-icons"
+import { Github, Mail } from "lucide-react"
 
 type FooterLink = {
   label: string
@@ -29,37 +26,18 @@ type FooterProps = {
 
 const defaultSections: FooterSection[] = [
   {
-    title: "Plans",
+    title: "Explore",
     links: [
-      { label: "Carrier Comparison", href: "/plans" },
-      { label: "Plan Finder", href: "/plans" },
+      { label: "Find a Plan", href: "/plans" },
       { label: "Student Guides", href: "/guide" },
-      { label: "Activation Help", href: "/faq" },
+      { label: "About", href: "/about" },
     ],
   },
   {
-    title: "Resources",
+    title: "Support",
     links: [
-      { label: "Getting Started", href: "/guide" },
       { label: "FAQ", href: "/faq" },
-      { label: "Blog", href: "/guide" },
-      { label: "Support Center", href: "/faq" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "/about" },
       { label: "Contact", href: "mailto:test@gmail.com" },
-      { label: "Partnerships", href: "/about" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
-      { label: "Cookie Policy", href: "#" },
     ],
   },
 ]
@@ -79,146 +57,78 @@ export const Footer = ({
   const currentYear = new Date().getFullYear()
   const copyright = copyrightText || `© ${currentYear} ${companyName}. All rights reserved.`
 
-  // State to track loading for specific elements
-  const [loadingState, setLoadingState] = useState<Record<string, boolean>>({})
-
-  const handleFakeLoading = (e: React.MouseEvent, id: string) => {
-    e.preventDefault()
-    setLoadingState(prev => ({ ...prev, [id]: true }))
-
-    // Stop spinning after 2 seconds
-    setTimeout(() => {
-      setLoadingState(prev => ({ ...prev, [id]: false }))
-    }, 2000)
-  }
-
   return (
     <footer className="w-full bg-[#fafafa] border-t border-[#e5e5e5]">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-14 md:py-16">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 mb-12">
-          {/* Brand Column */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="col-span-1 sm:col-span-2"
-          >
-            <div className="mb-4">
-              <h3
-                className="text-2xl font-semibold text-[#202020] mb-2"
-                style={{ fontFamily: "Figtree", fontWeight: "500" }}
-              >
-                {companyName}
-              </h3>
-              <p className="text-sm leading-5 text-[#666666] max-w-xs" style={{ fontFamily: "Figtree" }}>
-                {tagline}
-              </p>
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+        {/* Main Grid Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+
+          {/* Brand Column (Span 5) */}
+          <div className="col-span-1 md:col-span-5 flex flex-col justify-between h-full">
+            <div>
+              <a href="/" className="inline-block transition-opacity hover:opacity-80">
+                <h3 className="text-2xl font-bold text-[#111] mb-3 tracking-tight font-display">
+                  {companyName}
+                </h3>
+              </a>
+              <div className="flex flex-col gap-6">
+                <p className="text-sm text-[#666] leading-relaxed max-w-sm">
+                  {tagline}
+                </p>
+                {/* 
+                  Ideas for this space:
+                  - A simple newsletter signup form
+                  - A "Made with ❤️ in NYC" badge
+                  - A trust badge (e.g., "100% Free for Students")
+                */}
+              </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-3 mt-6">
-              {socialLinks.twitter && (
-                <a
-                  href={socialLinks.twitter}
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#666666] hover:text-[#202020] hover:border-[#202020] transition-colors duration-150"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-              )}
-              {socialLinks.linkedin && (
-                <a
-                  href={socialLinks.linkedin}
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#666666] hover:text-[#202020] hover:border-[#202020] transition-colors duration-150"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              )}
-              {socialLinks.github && (
-                <a
-                  href={socialLinks.github}
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#666666] hover:text-[#202020] hover:border-[#202020] transition-colors duration-150"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-              )}
-              {socialLinks.email && (
-                <a
-                  href={`mailto:${socialLinks.email}`}
-                  onClick={(e) => handleFakeLoading(e, 'email-icon')}
-                  className="w-9 h-9 flex items-center justify-center rounded-full bg-white border border-[#e5e5e5] text-[#666666] hover:text-[#202020] hover:border-[#202020] transition-colors duration-150"
-                  aria-label="Email"
-                >
-                  {loadingState['email-icon'] ? (
-                    <Loader2 className="w-4 h-4 animate-spin text-[#202020]" />
-                  ) : (
-                    <Mail className="w-4 h-4" />
-                  )}
-                </a>
-              )}
-            </div>
-          </motion.div>
+            {/* Social icons removed as requested */}
+          </div>
 
-          {/* Link Sections */}
-          {sections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-              className="col-span-1"
-            >
-              <h4
-                className="text-sm font-medium text-[#202020] mb-4 uppercase tracking-wide"
-                style={{ fontFamily: "Figtree", fontWeight: "500" }}
-              >
-                {section.title}
-              </h4>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => {
-                  const isContactLink = link.label === "Contact" || link.href.startsWith("mailto:")
-                  const linkId = `link-${index}-${linkIndex}`
+          {/* Spacer (Span 2) */}
+          <div className="col-span-1 md:col-span-2 hidden md:block"></div>
 
-                  return (
-                    <li key={linkIndex}>
-                      <a
-                        href={link.href}
-                        onClick={(e) => isContactLink ? handleFakeLoading(e, linkId) : undefined}
-                        className="text-sm text-[#666666] hover:text-[#202020] transition-colors duration-150 flex items-center gap-2"
-                        style={{ fontFamily: "Figtree" }}
-                      >
+          {/* Links Column (Span 5 - split into 2 sub-columns) */}
+          <div className="col-span-1 md:col-span-5 grid grid-cols-2 gap-8">
+            {sections.map((section, index) => (
+              <div key={index}>
+                <h4 className="text-xs font-bold text-[#111] mb-5 uppercase tracking-widest">
+                  {section.title}
+                </h4>
+                <ul className="space-y-4">
+                  {section.links.map((link, i) => (
+                    <li key={i}>
+                      <a href={link.href} className="text-sm text-[#666] hover:text-black transition-colors font-medium">
                         {link.label}
-                        {isContactLink && loadingState[linkId] && (
-                          <Loader2 className="w-3 h-3 animate-spin" />
-                        )}
                       </a>
                     </li>
-                  )
-                })}
-              </ul>
-            </motion.div>
-          ))}
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="pt-8 border-t border-[#e5e5e5]"
-        >
-          <div className="flex justify-center items-center">
-            <p className="text-sm text-[#666666]" style={{ fontFamily: "Figtree" }}>
-              {copyright}
-            </p>
+        {/* Bottom Bar: Copyright & Subtle Attribution */}
+        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+          <p>{copyright}</p>
+
+          {/* Subtle Attribution */}
+          <div className="flex items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+            <span>Data sourced from</span>
+            <a
+              href="https://www.bestphoneplans.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-gray-500 hover:text-[#111] border-b border-transparent hover:border-gray-400 transition-colors pb-px"
+            >
+              BestPhonePlans.net
+            </a>
+            <span>by Stetson Doggett</span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   )

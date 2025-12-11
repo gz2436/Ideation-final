@@ -21,8 +21,8 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
   const {
     dailyVolume = "1,430,992,688",
     dailyVolumeLabel = "Integrated Design and Media, M.S.",
-    headline = "Your Complete Guide to\nUS Phone Plans",
-    subheadline = "A final project for Ideation & Prototyping 2025 Fall.",
+    headline = "Best US Phone Plans for\nInternational Students",
+    subheadline = "Expert reviews and student-exclusive tips to help you save money and stay connected in the US.",
     description = "Trusted by fast-growing teams and enterprises, Auralink powers smarter communication across 1,000+ organizations — with enterprise-grade security, multilingual analysis, and instant emotional detection.",
     videoSrc = "https://cdn.sanity.io/files/1t8iva7t/production/a2cbbed7c998cf93e7ecb6dae75bab42b13139c2.mp4",
     posterSrc = "/images/design-mode/9ad78a5534a46e77bafe116ce1c38172c60dc21a-1069x1068.png",
@@ -209,7 +209,7 @@ export const ProductTeaserCard = (props: ProductTeaserCardProps) => {
                 fontFamily: "var(--font-figtree), Figtree",
               }}
             >
-              Your Complete Guide to{"\n"}US Phone Plans
+              {headline}
             </h1>
 
             <p
