@@ -23,10 +23,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "GoUS",
-  description: "Created with v0",
-  generator: "v0.app",
+  description: "Best US Phone Plans for International Students",
   icons: {
-    icon: "/icon.svg",
+    icon: "/icon.png",
   },
 }
 
