@@ -84,10 +84,10 @@ const Slide1_Cover: SlideComponent = () => {
 };
 
 // --- Shared Components ---
-const SlideTitle = ({ title, subtitle }: { title: string, subtitle?: string }) => (
+const SlideTitle = ({ title, subtitle, dark = false }: { title: string, subtitle?: string, dark?: boolean }) => (
   <div className="absolute top-6 right-8 text-right z-10">
-    <h2 className="text-2xl font-bold tracking-tight text-[#1d1d1f]">{title}</h2>
-    {subtitle && <p className="text-xs font-medium text-[#86868b] uppercase tracking-wide mt-1">{subtitle}</p>}
+    <h2 className={`text-2xl font-bold tracking-tight ${dark ? 'text-white' : 'text-[#1d1d1f]'}`}>{title}</h2>
+    {subtitle && <p className={`text-xs font-medium uppercase tracking-wide mt-1 ${dark ? 'text-gray-500' : 'text-[#86868b]'}`}>{subtitle}</p>}
   </div>
 );
 
@@ -614,6 +614,391 @@ const Slide6_Insight: SlideComponent = () => {
 
 
 
+// --- SLIDE 7: TRANSITION (Video) ---
+const Slide7_Video: SlideComponent = () => (
+  <div className="w-full h-full bg-white flex items-center justify-center relative overflow-hidden">
+    <SlideTitle title="The Video" subtitle="Website Demo" />
+
+    <motion.div
+      className="relative w-full max-w-6xl aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-gray-200"
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <video
+        className="w-full h-full object-cover"
+        controls
+        autoPlay
+        src="/presentation_video.mov"
+      >
+        Your browser does not support the video tag.
+      </video>
+    </motion.div>
+  </div>
+);
+
+// --- SLIDE 8: SOLUTION (Discovery - The Curator) ---
+const Slide8_Discovery: SlideComponent = () => (
+  <SlideContainer className="bg-white p-0 relative overflow-hidden">
+    <SlideTitle title="The Solution" subtitle="Discovery" />
+
+    {/* Layer 1: Background Mockup (Full Height, Left Aligned) */}
+    <motion.div
+      initial={{ opacity: 0, scale: 1.05 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.2 }}
+      className="absolute inset-0 z-0 flex items-center justify-start pointer-events-none"
+    >
+      <img
+        src="/presentation_iphone.png"
+        alt="GoUS Interface"
+        className="h-[125%] w-[90%] object-contain object-left-center -ml-[10%]"
+      />
+    </motion.div>
+
+    {/* Layer 2: Content Overlay (Right Aligned) */}
+    <div className="relative z-10 w-full h-full flex items-center justify-end pr-12 md:pr-24 pointer-events-none">
+      <div className="w-[45%] pointer-events-auto">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="space-y-10"
+        >
+          <h2 className="text-9xl font-black text-[#1d1d1f] leading-[0.85] uppercase tracking-tighter">
+            Gous<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1d1d1f] to-gray-400">Curated</span>
+          </h2>
+
+          <div className="h-1 w-32 bg-[#1d1d1f]" />
+
+          <p className="text-2xl font-medium text-gray-500 leading-relaxed">
+            We filter the noise inside the chaos.<br />
+            Only the verified, high-value plans make the list.
+          </p>
+
+          <div className="pt-6 opacity-60 font-mono text-xs tracking-widest text-[#1d1d1f]">
+                        // TRUST_LAYER_V1.0
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </SlideContainer>
+);
+
+// --- SLIDE 9: STANDARDIZATION (Apples to Apples) ---
+// --- SLIDE 9: STANDARDIZATION (Apples to Apples) ---
+const Slide9_Standardization: SlideComponent = () => {
+  // Mock Data for "Real" Plans
+  const plans = [
+    { name: "Mint Mobile", color: "bg-green-400", price: "$15", data: "5GB", contract: "3 Mo", score: "9.2" },
+    { name: "T-Mobile", color: "bg-pink-600", price: "$50", data: "Unlimited", contract: "None", score: "8.5" },
+    { name: "Visible", color: "bg-blue-600", price: "$25", data: "Unlimited", contract: "None", score: "8.9" },
+  ];
+
+  return (
+    <SlideContainer className="bg-[#f5f5f7] flex flex-col items-center justify-center overflow-hidden">
+      <SlideTitle title="Standardization" subtitle="The Equalizer" />
+
+      <div className="flex-1 w-full max-w-7xl flex items-center justify-center relative">
+
+        {/* Background Context: The Problem (Fades out) */}
+        <motion.div
+          initial={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 0, scale: 1.5 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+        >
+          <h3 className="text-[120px] font-black text-gray-200 leading-none text-center blur-sm opacity-50">
+            CHAOS<br />CONFUSION<br />COMPLEXITY
+          </h3>
+        </motion.div>
+
+        {/* The Solution: Cards Snapping into Place */}
+        <div className="flex gap-8 z-10 perspective-1000">
+          {plans.map((plan, index) => (
+            <motion.div
+              key={index}
+              // Initial: Scattered, Rotated, Messy
+              initial={{
+                x: (index - 1) * 200 + (Math.random() * 100 - 50),
+                y: Math.random() * 200 - 100,
+                rotate: Math.random() * 30 - 15,
+                opacity: 0
+              }}
+              // Animate: Aligned, Straight, Clean
+              animate={{
+                x: 0,
+                y: 0,
+                rotate: 0,
+                opacity: 1
+              }}
+              transition={{
+                type: "spring",
+                damping: 20,
+                stiffness: 100,
+                delay: 0.5 + (index * 0.2)
+              }}
+              whileHover={{ y: -20, transition: { duration: 0.2 } }}
+              className="w-80 h-[420px] bg-white rounded-[2rem] shadow-2xl p-6 flex flex-col justify-between border border-white/50 backdrop-blur-xl relative overflow-hidden group"
+            >
+              {/* Decorative Gradient Blob */}
+              <div className={`absolute top-[-50%] right-[-50%] w-full h-full ${plan.color} opacity-20 blur-3xl rounded-full group-hover:opacity-30 transition-opacity`} />
+
+              {/* Header */}
+              <div className="flex justify-between items-start relative">
+                <div className={`w-14 h-14 rounded-2xl ${plan.color} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                  {plan.name[0]}
+                </div>
+                <div className="px-3 py-1 bg-black text-white text-xs font-bold rounded-full">
+                  GoUS {plan.score}
+                </div>
+              </div>
+
+              {/* Plan Details */}
+              <div className="space-y-6 relative">
+                <h3 className="text-2xl font-bold text-[#1d1d1f]">{plan.name}</h3>
+
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm py-2 border-b border-gray-100">
+                    <span className="text-gray-400 font-medium">Data</span>
+                    <span className="text-[#1d1d1f] font-bold">{plan.data}</span>
+                  </div>
+                  <div className="flex justify-between text-sm py-2 border-b border-gray-100">
+                    <span className="text-gray-400 font-medium">Contract</span>
+                    <span className="text-[#1d1d1f] font-bold">{plan.contract}</span>
+                  </div>
+                  <div className="flex justify-between text-sm py-2 border-b border-gray-100">
+                    <span className="text-gray-400 font-medium">Network</span>
+                    <span className="text-[#1d1d1f] font-bold">5G UC</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer Price */}
+              <div className="flex items-end gap-1 relative">
+                <div className="text-5xl font-black text-[#1d1d1f] tracking-tight">{plan.price}</div>
+                <div className="text-lg text-gray-400 font-medium mb-1">/mo</div>
+              </div>
+
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2 }}
+        className="z-10 mt-12 text-center text-[#1d1d1f] font-medium text-xl"
+      >
+        From market chaos to <span className="text-blue-600 font-bold">apples-to-apples</span> clarity.
+      </motion.div>
+    </SlideContainer>
+  );
+};
+
+// --- SLIDE 10: EDUCATION (Zero to Expert) ---
+// --- SLIDE 10: EDUCATION (The Knowledge Base) ---
+const Slide10_Education: SlideComponent = () => {
+  const guides = [
+    { icon: "🎓", title: "F1 Visa & Phone Plans", desc: "Why you don't need an SSN.", time: "3 min" },
+    { icon: "🚫", title: "The 'Free Phone' Trap", desc: "Read the fine print before signing.", time: "5 min" },
+    { icon: "🌍", title: "Roaming Explained", desc: "How to save $10/day.", time: "4 min" }
+  ];
+
+  return (
+    <SlideContainer className="bg-[#f5f5f7] relative overflow-hidden flex items-center justify-center">
+      {/* Dynamic Background Mesh */}
+      <motion.div
+        animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-[-20%] right-[-20%] w-[800px] h-[800px] bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-[100px] pointer-events-none"
+      />
+      <motion.div
+        animate={{ rotate: -360, scale: [1, 1.2, 1] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-[-20%] left-[-20%] w-[600px] h-[600px] bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-[100px] pointer-events-none"
+      />
+
+      <SlideTitle title="Education" subtitle="The Encyclopedia" />
+
+      <div className="flex flex-col md:flex-row gap-12 max-w-7xl w-full items-center justify-center relative z-10">
+
+        {/* Left: The Value Prop */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 max-w-lg space-y-8"
+        >
+          <h3 className="text-7xl font-bold text-[#1d1d1f] leading-[0.95] tracking-tighter">
+            We don't sell.<br />
+            We <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">empower.</span>
+          </h3>
+          <div className="h-1 w-20 bg-blue-600" />
+          <p className="text-xl text-gray-500 font-medium leading-relaxed">
+            The industry profits from your confusion. <br />
+            <span className="text-[#1d1d1f] font-bold">GoUS Guide</span> is your defense system. Verified articles, breakdown videos, and community truth.
+          </p>
+        </motion.div>
+
+        {/* Right: The Interactive Stack */}
+        <div className="w-[500px] relative perspective-1000">
+          {guides.map((guide, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: 100, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: 0.2 + (index * 0.15) }}
+              whileHover={{
+                scale: 1.05,
+                x: -20,
+                zIndex: 50,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+              }}
+              className="bg-white/80 backdrop-blur-xl p-6 rounded-3xl border border-white/50 shadow-xl mb-4 relative z-0 cursor-pointer group origin-left"
+              style={{ marginLeft: index * 20 }} // Staggered stack effect
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex gap-4">
+                  <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-3xl shadow-inner">
+                    {guide.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold text-[#1d1d1f] group-hover:text-blue-600 transition-colors">
+                      {guide.title}
+                    </h4>
+                    <p className="text-sm text-gray-500 mt-1">{guide.desc}</p>
+                  </div>
+                </div>
+                <div className="px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-500 uppercase tracking-wide group-hover:bg-blue-100 group-hover:text-blue-600 transition-colors">
+                  {guide.time}
+                </div>
+              </div>
+
+              {/* Hover Reveal Arrow */}
+              <div className="absolute right-6 bottom-6 opacity-0 group-hover:opacity-100 transition-opacity transform translate-x-2 group-hover:translate-x-0">
+                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </motion.div>
+          ))}
+
+          {/* Decorative "More" Indicator */}
+          <div className="text-center mt-4 text-gray-400 text-sm font-medium animate-pulse">
+            + 142 articles
+          </div>
+        </div>
+
+      </div>
+    </SlideContainer>
+  );
+};
+
+// --- SLIDE 11: VISION (The New Standard) ---
+const Slide11_Vision: SlideComponent = () => {
+  const pillars = [
+    { title: "Radical Transparency", desc: "No hidden fees. No 'gotchas'. Just the truth.", icon: "👁️" },
+    { title: "Zero Friction", desc: "Complexity flattened into a single, beautiful score.", icon: "⚡" },
+    { title: "Student Advocacy", desc: "We don't work for carriers. We work for you.", icon: "🛡️" }
+  ];
+
+  return (
+    <SlideContainer className="bg-white flex flex-col items-center justify-center">
+      <SlideTitle title="Vision" subtitle="The New Standard" />
+
+      <div className="flex-1 w-full max-w-7xl flex items-center justify-center gap-8 relative z-10 px-8">
+        {pillars.map((pillar, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.8 }}
+            whileHover={{ y: -10 }}
+            className="flex-1 h-[500px] bg-[#f5f5f7] rounded-[2.5rem] p-10 flex flex-col justify-between hover:bg-[#1d1d1f] hover:text-white transition-all duration-500 group cursor-default shadow-lg"
+          >
+            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-4xl shadow-sm text-black group-hover:scale-110 transition-transform duration-500">
+              {pillar.icon}
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-4xl font-bold leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all">
+                {pillar.title}
+              </h3>
+              <div className="h-[1px] w-12 bg-gray-300 group-hover:bg-gray-600 transition-colors" />
+              <p className="text-xl text-gray-500 font-medium group-hover:text-gray-300 leading-relaxed">
+                {pillar.desc}
+              </p>
+            </div>
+
+            <div className="flex justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="mt-12 text-gray-400 text-lg font-medium tracking-wide uppercase"
+      >
+        Connectivity is a right. Not a puzzle.
+      </motion.div>
+    </SlideContainer>
+  );
+};
+
+// --- SLIDE 12: END (Finale) ---
+const Slide12_End: SlideComponent = () => (
+  <SlideContainer className="bg-white text-[#1d1d1f] flex flex-col items-center justify-center relative overflow-hidden">
+
+    {/* Standardized Header */}
+    <SlideTitle title="The End" subtitle="Thank You" />
+
+    <div className="flex-1 w-full max-w-7xl flex flex-col md:flex-row items-center justify-center gap-24 relative z-10">
+
+      {/* Left: Typography (Solid & Uppercase) */}
+      <motion.div
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="text-right flex flex-col items-end"
+      >
+        <h2 className="text-9xl font-black leading-[0.85] tracking-tighter text-[#1d1d1f]">
+          THANK
+        </h2>
+        <h2 className="text-9xl font-black leading-[0.85] tracking-tighter text-[#1d1d1f]">
+          YOU
+        </h2>
+      </motion.div>
+
+      {/* Divider */}
+      <div className="hidden md:block h-32 w-[1px] bg-gray-200" />
+
+      {/* Right: QR Code (Clean) */}
+      <motion.div
+        initial={{ x: 20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.8 }}
+        className="relative group"
+      >
+        <div className="absolute inset-0 bg-blue-600 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
+
+        <div className="relative bg-white p-4 rounded-[2rem] shadow-2xl transform transition-transform duration-500 group-hover:scale-105 border border-gray-100">
+          <img
+            src="/QRcode.png"
+            alt="GoUS App"
+            className="w-64 h-64 object-contain mix-blend-multiply opacity-90"
+          />
+        </div>
+      </motion.div>
+
+    </div>
+  </SlideContainer>
+);
+
 // --- MAIN PRESENTATION DECK ---
 const SLIDES = [
   Slide1_Cover,
@@ -621,7 +1006,13 @@ const SLIDES = [
   Slide3_Landscape,
   Slide4_Research,
   Slide5_Users,
-  Slide6_Insight
+  Slide6_Insight,
+  Slide7_Video,
+  Slide8_Discovery,
+  Slide9_Standardization,
+  Slide10_Education,
+  Slide11_Vision,
+  Slide12_End
 ];
 
 export default function PresentationPage() {
