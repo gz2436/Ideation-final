@@ -209,7 +209,7 @@ export default function PlansPage() {
                 {/* Top Picks - Clean Cards */}
                 <section className="px-4 sm:px-6 mb-12 md:mb-16">
                     <div className="max-w-5xl mx-auto">
-                        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-12 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Editor's Choice</h2>
+                        <h2 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-12 text-center font-mono" style={{ fontFamily: 'var(--font-geist-mono), monospace' }}>Editor&apos;s Choice</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
 
                             {/* Verizon (Left) */}

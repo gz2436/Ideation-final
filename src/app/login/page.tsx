@@ -229,7 +229,7 @@ export default function LoginPage() {
                         </p>
                     </div>
                     <p className="text-xs text-gray-400">
-                        Don't have an account?{" "}
+                        Don&apos;t have an account?{" "}
                         <button
                             onClick={handleCreateAccount}
                             disabled={!!loadingProvider}

@@ -682,7 +682,7 @@ export const CaseStudiesCarousel = () => {
                       fontFamily: "var(--font-figtree), Figtree",
                     }}
                   >
-                    "{currentStudy.quote}"
+                    &quot;{currentStudy.quote}&quot;
                   </p>
                   <footer
                     className="text-sm text-muted-foreground"
