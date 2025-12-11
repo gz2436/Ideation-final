@@ -11,103 +11,133 @@ export interface Guide {
 
 export const guides: Guide[] = [
     {
-        id: 'intl-student-guide',
-        title: 'The Complete Guide to US Phone Plans for International Students',
-        excerpt: 'Everything you need to know before landing: prepaid vs. postpaid, credit checks, network coverage, and the best carriers for students without SSN.',
-        category: 'Switching',
+        id: 'best-plans-2025',
+        title: '9 Best Cell Phone Plans of 2025',
+        excerpt: 'We tested over 50 plans to find the absolute best value carriers for students, families, and light users. Featuring US Mobile, Mint Mobile, and Visible.',
+        category: 'Ranking',
+        readTime: '15 min read',
+        date: 'Oct 14, 2024',
+        image: '/imgs/9 Best Cell Phone Plans of 2025.jpg',
+        link: 'https://www.bestphoneplans.net/news/best-cell-phone-plans'
+    },
+    {
+        id: 'students-plans',
+        title: '7 Best Cell Phone Plans for Students in 2025',
+        excerpt: 'The best budget-friendly plans that don\'t require a credit check or SSN. Perfect for international students in the US.',
+        category: 'Best Picks',
         readTime: '10 min read',
-        date: 'Nov 15, 2024',
-        image: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80',
-        link: 'https://medium.com/tag/international-students'
+        date: 'Feb 1, 2025',
+        image: '/imgs/7 Best Cell Phone Plans for Students in 2025.jpg',
+        link: 'https://www.bestphoneplans.net/news/best-cell-phone-plans-for-students'
     },
     {
-        id: 'save-money-data',
-        title: 'How I Cut My Phone Bill by 70% Without Switching Carriers',
-        excerpt: 'Simple tricks to cut your data usage in half. Learn about Wi-Fi assist, background refresh, offline maps, and the apps silently draining your wallet.',
-        category: 'Savings',
-        readTime: '6 min read',
-        date: 'Nov 10, 2024',
-        image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/money-saving'
-    },
-    {
-        id: 'esim-travel-guide',
-        title: 'eSIM for Travel: Your Complete International Roaming Guide',
-        excerpt: 'How to activate eSIMs for international travel, the best providers (Airalo, Umi, Ubigi), and why you might still need that physical slot.',
-        category: 'Travel',
-        readTime: '8 min read',
-        date: 'Nov 05, 2024',
-        image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/esim'
-    },
-    {
-        id: '5g-explained',
-        title: '5G Explained: Do Students Really Need It in 2024?',
-        excerpt: 'Breaking down the hype: mmWave vs. Sub-6GHz, real-world speed tests, battery drain myths, and whether you should pay extra for 5G coverage.',
-        category: 'Technology',
-        readTime: '7 min read',
-        date: 'Oct 28, 2024',
-        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/5g'
-    },
-    {
-        id: 'mint-vs-visible',
-        title: 'Mint Mobile vs Visible: I Tested Both for 90 Days',
-        excerpt: 'Speed tests, deprioritization reality checks, customer service nightmares, and the real cost when you factor in taxes and fees. The definitive comparison.',
-        category: 'Reviews',
+        id: 'unlimited-plans',
+        title: '11 Best Unlimited Data Plans of 2025',
+        excerpt: 'We ranked the best unlimited plans from Verizon, AT&T, T-Mobile, and MVNOs based on priority data, hotspot allowance, and price.',
+        category: 'Ranking',
         readTime: '12 min read',
-        date: 'Oct 15, 2024',
-        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/tech-review'
+        date: 'July 9, 2024',
+        image: '/imgs/11 Best Unlimited Data Plans of 2025.webp',
+        link: 'https://www.bestphoneplans.net/news/best-unlimited-data-plans'
     },
     {
-        id: 'contract-types',
-        title: 'Prepaid vs Postpaid: Which Contract Type is Right for You?',
-        excerpt: 'Understanding the trade-offs between flexibility and perks. When to choose prepaid, why postpaid might save you money, and the hidden costs of both.',
-        category: 'Switching',
-        readTime: '5 min read',
-        date: 'Oct 08, 2024',
-        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/mobile-plans'
-    },
-    {
-        id: 'roaming-tips',
-        title: '10 Roaming Tips That Will Save You Hundreds',
-        excerpt: 'From turning off data roaming at the airport to using Google Voice for free calls, here are the veteran traveler secrets to avoid shock bills.',
-        category: 'Travel',
-        readTime: '6 min read',
-        date: 'Sep 22, 2024',
-        image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/travel-tips'
-    },
-    {
-        id: 'network-comparison',
-        title: 'T-Mobile vs Verizon vs AT&T: The Real Network Showdown',
-        excerpt: 'We drove 5,000 miles across the US testing all three networks. Here is what we found about coverage, speed, and reliability in real-world conditions.',
-        category: 'Technology',
-        readTime: '14 min read',
-        date: 'Sep 10, 2024',
-        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/carrier-comparison'
-    },
-    {
-        id: 'hidden-fees',
-        title: 'The Hidden Fees They Don\'t Talk About',
-        excerpt: 'Activation fees, "free" phones that aren\'t free, deprioritization during peak hours, and the fine print that adds $20 to your "unlimited" plan.',
-        category: 'Savings',
-        readTime: '7 min read',
-        date: 'Aug 28, 2024',
-        image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/mobile-data'
-    },
-    {
-        id: 'phone-unlocking',
-        title: 'How to Unlock Your Phone (And Why You Should)',
-        excerpt: 'Carrier locks explained, the legal right to unlock after 60 days, step-by-step instructions for iPhone and Android, and how to avoid getting scammed.',
-        category: 'Technology',
+        id: 'lower-bill',
+        title: 'How To Lower Your Cell Phone Bill (And Save Hundreds)',
+        excerpt: 'Stop overpaying for "Unlimited" data you don\'t use. We show you how to analyze your usage and switch to a plan that fits your needs.',
+        category: 'Guides',
         readTime: '8 min read',
-        date: 'Aug 15, 2024',
-        image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=800&q=80',
-        link: 'https://medium.com/tag/mobile-tech'
+        date: 'Jan 31, 2025',
+        image: '/imgs/How To Lower Your Cell Phone Bill and Save Hundreds of Dollars Per Year.webp',
+        link: 'https://www.bestphoneplans.net/news/how-to-lower-your-cell-phone-bill'
+    },
+    {
+        id: 'cheap-plans',
+        title: 'Best Cheap Cell Phone Plans of 2025',
+        excerpt: 'You can get reliable coverage for under $20/month. We review Helium Mobile ($0/mo), US Mobile ($10/mo), and other hidden gems.',
+        category: 'Savings',
+        readTime: '6 min read',
+        date: 'Oct 15, 2025',
+        image: '/imgs/Best Cheap Cell Phone Plans of 2025.webp',
+        link: 'https://www.bestphoneplans.net/news/best-cheap-cell-phone-plans'
+    },
+    {
+        id: 'one-line',
+        title: '5 Best Cell Phone Plans for One Line',
+        excerpt: 'Family plans aren\'t the only way to save. These single-line plans offer multi-line pricing without the need for a group.',
+        category: 'Reviews',
+        readTime: '7 min read',
+        date: 'Feb 1, 2025',
+        image: '/imgs/5 Best Cell Phone Plans for One Line in 2025.webp',
+        link: 'https://www.bestphoneplans.net/news/best-cell-phone-plans-for-one-line'
+    },
+    {
+        id: 'pick-plan',
+        title: 'How To Pick A Cell Phone Plan in 2025',
+        excerpt: 'Confused by data caps and throttled speeds? We break down exactly how to choose the right plan for your usage patterns.',
+        category: 'Guide',
+        readTime: '10 min read',
+        date: 'Feb 1, 2025',
+        image: '/imgs/How To Pick A Cell Phone Plan in 2025.jpg',
+        link: 'https://www.bestphoneplans.net/news/pick-a-cell-phone-plan'
+    },
+    {
+        id: 'dont-get-mint',
+        title: '7 Reasons Why Not To Get Mint Mobile',
+        excerpt: 'Mint Mobile is popular, but it isn\'t for everyone. Read this before you commit to their 3-month bulk pricing model.',
+        category: 'Opinion',
+        readTime: '8 min read',
+        date: 'Jan 2, 2024',
+        image: '/imgs/7 Reasons Why Not To Get Mint Mobile.jpg',
+        link: 'https://www.bestphoneplans.net/news/dont-get-mint-mobile'
+    },
+    {
+        id: 'att-hotspot',
+        title: 'AT&T\'s Tablet and Hotspot Data Plans: Explained',
+        excerpt: 'AT&T offers 7 categories of hotspot and data plans. Here are all the different features, benefits, and prices explained.',
+        category: 'Guides',
+        readTime: '10 min read',
+        date: 'Dec 11, 2024', // Approximated date based on "News" context or today's date if not found
+        image: '/imgs/ATTs Tablet and Hotspot Data Plans Explained.jpeg',
+        link: 'https://www.bestphoneplans.net/news/att-tablet-hotspot-plans-explained'
+    },
+    {
+        id: 'cheaper-plans',
+        title: 'How Can Some Cell Phone Plans Cost So Much Less?',
+        excerpt: 'The math behind $15/month plans vs $80/month plans. Are you paying for brand name or actual network quality?',
+        category: 'Education',
+        readTime: '6 min read',
+        date: 'June 18, 2024',
+        image: '/imgs/Which One Is Actually Cheaper.jpg',
+        link: 'https://www.bestphoneplans.net/news/how-some-cell-phone-plans-can-be-cheaper-than-others'
+    },
+    {
+        id: 'tmobile-transfer',
+        title: 'How To Get Your T-Mobile Transfer PIN',
+        excerpt: 'Moving your number to a cheaper carrier? Here is the step-by-step guide to generating your Port-Out PIN from the T-Mobile app.',
+        category: 'Guides',
+        readTime: '3 min read',
+        date: 'Dec 7, 2024',
+        image: '/imgs/How To Get Your T-Mobile Transfer PIN.webp',
+        link: 'https://www.bestphoneplans.net/news/t-mobile-transfer-pin'
+    },
+    {
+        id: 'att-transfer',
+        title: 'How To Get Your AT&T Transfer PIN',
+        excerpt: 'Don\'t let AT&T hold your number hostage. Learn how to request your Number Transfer PIN and account number in minutes.',
+        category: 'Guides',
+        readTime: '3 min read',
+        date: 'Dec 7, 2024',
+        image: '/imgs/How To Get Your ATT Transfer PIN.webp',
+        link: 'https://www.bestphoneplans.net/news/att-transfer-pin'
+    },
+    {
+        id: 'verizon-transfer',
+        title: 'How To Get Your Verizon Transfer PIN',
+        excerpt: 'Switching away from Big Red? Follow these simple steps to get your transfer PIN and keep your phone number.',
+        category: 'Guides',
+        readTime: '3 min read',
+        date: 'Dec 6, 2024',
+        image: '/imgs/How To Get Your Verizon Number Transfer PIN.webp',
+        link: 'https://www.bestphoneplans.net/news/verizon-transfer-pin'
     }
 ]

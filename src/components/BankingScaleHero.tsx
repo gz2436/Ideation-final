@@ -61,9 +61,11 @@ const generateDataPoints = (): DataPoint[] => {
 // @component: BankingScaleHero
 export const BankingScaleHero = () => {
   const [isVisible, setIsVisible] = useState(false)
-  const [dataPoints] = useState<DataPoint[]>(generateDataPoints())
+  // Generate on client to avoid SSR/client hydration mismatch from random values
+  const [dataPoints, setDataPoints] = useState<DataPoint[]>([])
   const [typingComplete, setTypingComplete] = useState(false)
   useEffect(() => {
+    setDataPoints(generateDataPoints())
     setIsVisible(true)
     const timer = setTimeout(() => setTypingComplete(true), 1000)
     return () => clearTimeout(timer)

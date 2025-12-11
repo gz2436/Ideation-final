@@ -128,17 +128,18 @@ export const IntegrationCarousel = ({
     let topAnimationId: number
     let topPosition = 0
 
-    // Set initial position to create seamless loop for right-to-left scroll
+    // Set initial position to 0 for leftward scroll
     if (topRowRef.current) {
-      topPosition = -(topRowRef.current.scrollWidth / 2)
+      topPosition = 0
       topRowRef.current.style.transform = `translateX(${topPosition}px)`
     }
 
     const animateTopRow = () => {
       if (topRowRef.current) {
-        topPosition += 0.3  // Move right (from negative toward zero)
-        if (topPosition >= 0) {
-          topPosition = -(topRowRef.current.scrollWidth / 2)
+        topPosition -= 0.3  // Move left (from zero toward negative)
+        // seamless loop: when we've scrolled half the width (the duplicate set), reset to 0
+        if (topPosition <= -(topRowRef.current.scrollWidth / 2)) {
+          topPosition = 0
         }
         topRowRef.current.style.transform = `translateX(${topPosition}px)`
       }
